@@ -7,7 +7,7 @@
  * wrapper, which is closed with the footer.php file. It also executes key functions needed
  * by the theme, child themes, and plugins. 
  *
- * @package Hybrid
+ * @package wp-Coop
  * @subpackage Template
  */
 ?>
@@ -49,3 +49,4 @@
 	<div id="container">
 
 		<?php do_atomic( 'before_container' ); // hybrid_before_container ?>
+	
