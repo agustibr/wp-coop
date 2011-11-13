@@ -5,12 +5,12 @@ define('CoopTheme_PATH', dirname(__FILE__));
 define('CoopTheme_URL', get_theme_root_uri() . '/wp-coop');
 //
 
-/****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
 
 // incloure 1 cop per crear ROLS i PERMISOS
 include(CoopTheme_PATH.'/php/user_roles.php');
 
 /**** END TEMPORALS ****/
+
 
 
 /*** INCLUDES PERMANENTS ***/
@@ -27,6 +27,7 @@ include(CoopTheme_PATH.'/php/web_scripts.php');
 // inclou Receptes
 include(CoopTheme_PATH.'/php/web_cpt.php');
 
+
 // inclou favicon
 function favicon_link() {
     echo '<link rel="shortcut icon" type="image/x-icon" href="'.CoopTheme_URL.'/favicon.ico" />' . "\n";
@@ -39,7 +40,7 @@ add_action('wp_head', 'favicon_link');
 
 /**** END PERMANENTS ****/
 
-
+/****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
 
 
 /*

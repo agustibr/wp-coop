@@ -8,7 +8,7 @@ I keep these handy, this is the right way to do them without a plugin. They set 
 
 // To add the new role, using 'international' as the short name and
 // 'International Blogger' as the displayed name in the User list and edit page:
-/**/
+
 add_role('ruscaire', 'Ruscaire', array(
     'read' => true, // True allows that capability, False specifically removes it.
     'edit_posts' => true,
@@ -20,12 +20,31 @@ add_role('ruscaire', 'Ruscaire', array(
     'delete_receptes' => true,
     'edit_published_receptes' => true,
     'publish_receptes' => true,
-    
+
+	'publish_cistelles' => true,
+	'edit_cistelles' => true,
+	'edit_others_cistelles' => false,
+	'delete_cistelles' => true,
+	'delete_others_cistelles' => true,
+	'read_private_cistelles' => true,
+	'read_cistelles' => true,
+	'edit_published_cistelles' => true,
+	    
     'edit_files' => true,
     'import' => true,
     'upload_files' => true //last in array needs no comma!
 ));
+add_role('proveidor-arc_natura', 'Proveidor - Arc de la Natura', array(
+	'read' => true, // True allows that capability, False specifically removes it.
 
+	'publish_cistelles' => true,
+	'edit_cistelles' => true,
+	'delete_cistelles' => true,
+	'read_private_cistelles' => true,
+	'read_cistelles' => true,
+	'edit_published_cistelles' => true,
+));
+/*
 add_role('exruscaire', 'Exruscaire', array(
     'read' => true
 ));
@@ -33,15 +52,15 @@ add_role('exruscaire', 'Exruscaire', array(
 add_role('espera', 'En llista Espera', array(
     'read' => true
 ));
-
+*/
 // To remove one outright or remove one of the defaults:
 /* 
 remove_role('editor');
 remove_role('author');
 remove_role('contributor');
-remove_role('subscriber');
+remove_role('ruscaire');*/
 
-*/
+
 /**
 It's sometimes handy to add/remove from an existing role rather than removing and re-adding one. Again, you only need to uncomment it, reload a page and then comment it again. This will store the role/capability properly in the options table. (This allows you, the developer to control them and removes the overhead of the bulky plugins that do the same thing.) Here I'm changing the author role to delete their published posts (the default), but allowing them the capability to edit their published posts (which isn't possible for this role by default)-- using *add_cap* or *remove_cap*.
 **/
@@ -52,9 +71,17 @@ $edit_role->add_cap('read_private_pages');
 */
 //$edit_role->remove_cap('delete_published_posts');
 
+	$edit_role = get_role('administrator');
+	$edit_role->add_cap('read_cistelles');
+	$edit_role->add_cap('read_private_cistelles');
+	$edit_role->add_cap('edit_published_cistelles');
+	$edit_role->add_cap('edit_others_cistelles');
+	$edit_role->add_cap('delete_cistelles');
+	$edit_role->add_cap('edit_cistelles');
+	$edit_role->add_cap('publish_cistelles');
+
 
 // Change URL Slug from Author to Cens
-/**/
 function new_author_base() {
     global $wp_rewrite;
     $author_slug = 'cens';
