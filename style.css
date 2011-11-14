@@ -4,12 +4,12 @@ Theme URI:      http: //agusti.cat/
 Description:    Tema per a el Rusc. 
 Author:         Agustí Belloc
 Author URI:     http: //agusti.cat/
-Template:       hybrid
+Template:       toolbox
 Version:        0.0.1
 */
 /*@import url("https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css");*/
 
-@import url("../hybrid/style.css");
+@import url("../toolbox/style.css");
 /*@import url("http://cachedcommons.org/cache/960/0.0.0/stylesheets/960-min.css");
 @import url("css/bootstrap.min.css");
 
@@ -23,7 +23,7 @@ COLORS:
 * purple-dark : #3B0466;
 * purple-light: #D7BCED;
  */
-body {background:#ddd url(img/dark.jpg);}
+body {background:#ddd url(img/dark.jpg);font-family:sans-serif;}
 #primary-menu {margin:0 0 1em 0;}
 #primary-menu li, #page-nav li { margin: 0 1px;}
 #primary-menu li a {border:1px solid #999;border-width: 0 0 2px 0px;background:transparent;font-family:sans-serif;}

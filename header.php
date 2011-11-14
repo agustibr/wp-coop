@@ -1,52 +1,91 @@
 <?php
 /**
- * Header Template
+ * The Header for our theme.
  *
- * The header template is generally used on every page of your site. Nearly all other
- * templates call it somewhere near the top of the file. It is used mostly as an opening
- * wrapper, which is closed with the footer.php file. It also executes key functions needed
- * by the theme, child themes, and plugins. 
+ * Displays all of the <head> section and everything up till <div id="main">
  *
- * @package wp-Coop
- * @subpackage Template
+ * @package WordPress
+ * @subpackage Toolbox
+ * @since Toolbox 0.1
  */
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
 <html <?php language_attributes(); ?>>
+<!--<![endif]-->
 <head>
-<meta http-equiv="Content-Type" content="<?php bloginfo( 'html_type' ); ?>; charset=<?php bloginfo( 'charset' ); ?>" />
-<title><?php hybrid_document_title(); ?></title>
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
+<title><?php
+	/*
+	 * Print the <title> tag based on what is being viewed.
+	 */
+	global $page, $paged;
 
-<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>" type="text/css" media="all" />
+	wp_title( '|', true, 'right' );
+
+	// Add the blog name.
+	bloginfo( 'name' );
+
+	// Add the blog description for the home/front page.
+	$site_description = get_bloginfo( 'description', 'display' );
+	if ( $site_description && ( is_home() || is_front_page() ) )
+		echo " | $site_description";
+
+	// Add a page number if necessary:
+	if ( $paged >= 2 || $page >= 2 )
+		echo ' | ' . sprintf( __( 'Page %s', 'toolbox' ), max( $paged, $page ) );
+
+	?></title>
 <link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); ?>
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<!--[if lt IE 9]>
+<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<![endif]-->
 
-<?php do_atomic( 'head' ); // @deprecated 0.9.0. Use 'wp_head'. ?>
-<?php wp_head(); // wp_head ?>
-
+<?php wp_head(); ?>
 </head>
 
-<body class="<?php hybrid_body_class(); ?>">
+<body <?php body_class(); ?>>
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+		<hgroup>
+			<h1 id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</hgroup>
 
-<?php do_atomic( 'before_html' ); // hybrid_before_html ?>
+		<nav id="access" role="navigation">
+			<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
+			<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
-<div id="body-container">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		</nav><!-- #access -->
+		<nav role="utilities">
+		<?php
+		// custom navigation for diferent roles
+		if ( is_user_logged_in() ) {
+			global $current_user;
+			$userRole = ($current_user->data->wp_capabilities);
+			$role = key($userRole);
+			unset($userRole);
+			if ($role == 'administrator' || $role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
+			if ($role == 'administrator' || $role == 'ruscaire' || $role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
+		}
+		?>
+		</nav>
+	</header><!-- #branding -->
 
-	<?php do_atomic( 'before_header' ); // hybrid_before_header ?>
-
-	<div id="header-container">
-
-		<div id="header">
-
-			<?php do_atomic( 'header' ); // hybrid_header ?>
-
-		</div><!-- #header -->
-
-	</div><!-- #header-container -->
-
-	<?php do_atomic( 'after_header' ); // hybrid_after_header ?>
-
-	<div id="container">
-
-		<?php do_atomic( 'before_container' ); // hybrid_before_container ?>
-	
+	<div id="main">

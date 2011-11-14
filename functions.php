@@ -34,6 +34,34 @@ function favicon_link() {
 }
 add_action('wp_head', 'favicon_link');
 
+function toolbox_setup() {
+	load_theme_textdomain( 'toolbox', get_template_directory() . '/languages' );
+
+	$locale = get_locale();
+	$locale_file = get_template_directory() . "/languages/$locale.php";
+	if ( is_readable( $locale_file ) )
+		require_once( $locale_file );
+
+	/**
+	 * Add default posts and comments RSS feed links to head
+	 */
+	add_theme_support( 'automatic-feed-links' );
+
+	/**
+	 * This theme uses wp_nav_menu() in one location.
+	 */
+	register_nav_menus( array(
+		'primary' => __( 'Menu Public', 'wp-coop' ),
+		'ruscaire' => __( 'Menu Ruscaires', 'wp-coop' ),
+		'proveidor_arc' => __( 'Menu Arc Natura', 'wp-coop' ),
+	) );
+
+	/**
+	 * Add support for the Aside and Gallery Post Formats
+	 */
+	add_theme_support( 'post-formats', array( 'gallery' ) );//'aside', 'image', 
+}
+
 // inclou Coop Widgets
 //include(CoopTheme_PATH.'/php/web_widgets.php');
 
