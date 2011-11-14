@@ -1,4 +1,6 @@
 <?php
+
+
 add_action('init', 'codex_custom_init');
 function codex_custom_init() 
 {
@@ -139,9 +141,13 @@ $messages['cistella'] = array(
 
 
 //hook into the init action and call create_receptes_taxonomies when it fires
+//$ingredients_rebost="";
 add_action( 'init', 'create_recepta_taxonomies', 0 );
-
-//create two taxonomies, genres and writers for the post type "recepta"
+//add_action( 'init', 'get_recepta_rebost',1);
+function get_recepta_rebost(){
+ // $ingredients_rebost = get_terms('rebost', array('hide_empty' => false));
+}
+//create  taxonomies, for the post type "recepta"
 function create_recepta_taxonomies() 
 {
   // Add new taxonomy
@@ -159,7 +165,7 @@ function create_recepta_taxonomies()
     'menu_name' => __( 'Rebost' ),
   ); 	
 
-  register_taxonomy('genre',array('recepta'), array(
+  register_taxonomy('rebost',array('recepta'), array(
     'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,

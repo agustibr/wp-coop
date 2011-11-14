@@ -10,8 +10,8 @@ Version:        0.0.1
 /*@import url("https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css");*/
 
 @import url("../hybrid/style.css");
-@import url("http://cachedcommons.org/cache/960/0.0.0/stylesheets/960-min.css");
-/*@import url("css/bootstrap.min.css");
+/*@import url("http://cachedcommons.org/cache/960/0.0.0/stylesheets/960-min.css");
+@import url("css/bootstrap.min.css");
 
 COLORS:
 * green-dark  : #115900;
@@ -19,14 +19,18 @@ COLORS:
 *
 * brown-dark : #472300;
 * brown-light : #D3975D;
+*
+* purple-dark : #3B0466;
+* purple-light: #D7BCED;
  */
 body {background:#ddd url(img/dark.jpg);}
 #primary-menu {margin:0 0 1em 0;}
 #primary-menu li, #page-nav li { margin: 0 1px;}
 #primary-menu li a {border:1px solid #999;border-width: 0 0 2px 0px;background:transparent;font-family:sans-serif;}
 #primary-menu .actualitat a {border-color: #9BD28E;color:#115900;}
-.menu .recepta {border:none;background:transparent;}
+.menu .recepta, .menu .cistella {border:none;background:transparent;}
 #primary-menu .recepta a {border-color:#D3975D;color:#472300;}
+#primary-menu .cistella a {border-color:#D7BCED;color:#3B0466;}
 
 .post {background:#fff;border:1px solid #9BD28E; }
 .post.sticky {border:5px solid #9BD28E;}
@@ -35,9 +39,14 @@ body {background:#ddd url(img/dark.jpg);}
 .post a {color:#115900;font-weight:normal;text-decoration:none;}
 
 .recepta {background:#fff; border:1px solid #D3975D;}
-.recepta.sticky {border:5px solid #9BD28E;}
+.recepta.sticky {border:5px solid #D3975D;}
 .recepta a {color:#472300;font-weight:normal;text-decoration:none;}
 .hentry.recepta {padding:20px;margin:10px auto;}
+
+.cistella {background:#fff; border:1px solid #D7BCED;}
+.cistella.sticky {border:5px solid #D7BCED;}
+.cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
+.hentry.cistella {padding:20px;margin:10px auto;}
 
 .post h1 a:visited {color:#000 !important;font-style:italic;}
 
@@ -49,3 +58,4 @@ body {background:#ddd url(img/dark.jpg);}
 #primary-menu .current-menu-item > a {font-weight:bold;}
 #primary-menu .current-menu-item.recepta a {border-color:#472300;}
 #primary-menu .current-menu-item.actualitat a {border-color:#115900;}
+#primary-menu .current-menu-item.cistella a {border-color:#3B0466;}
