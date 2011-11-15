@@ -25,55 +25,54 @@ get_header(); ?>
             global $wp_roles;
             echo '<div id="tabs"><ul>';
             foreach ( $wp_roles->role_names as $role => $role_name ) :
-              echo '<li><a href="#'.$role.'">'.$role_name.'</a></li>';
+				if($role!='administrator') echo '<li><a href="#'.$role.'">'.$role_name.'</a></li>';
             endforeach;
             echo '</ul>';
 
             //echo '<div class="tab-content">';
             foreach ( $wp_roles->role_names as $role => $role_name ) :
-              echo '<div id="'.$role.'">';
-              
-                // http://codex.wordpress.org/Function_Reference/get_users
-                //$blogusers = get_users('blog_id=1&orderby=nicename&role=subscriber');
-                $options = 'role='.$role;
-
-                if($role=='ruscaire') {
-                  $options = 'meta_key=uf&role='.$role;
-                }
-                $blogusers = get_users($options);
+					if($role!='administrator'):
+						echo '<div id="'.$role.'">';
+						// http://codex.wordpress.org/Function_Reference/get_users
+						//$blogusers = get_users('blog_id=1&orderby=nicename&role=subscriber');
+						$options = 'role='.$role;
+						if($role=='ruscaire') $options = 'meta_key=uf&role='.$role;
+                	$blogusers = get_users($options);
                 ?>
-                <table class="zebra-striped">
-                  <thead>
-                    <tr>
-                    <th>U.F.</th>
-                    <th>Nom</th>
-                    <th>Email</th>
-                    <th>Tel.</th>
-                    <th>Adreça</th>
-                    <th>Coope desde</th>
-                    <th>Es menor ?</th>
-                    </tr>
-                  </thead>
-                <tbody>
-                <?php
-                foreach ($blogusers as $user) {
-                    echo '<tr>';
-                    echo '<td><strong>'.get_the_author_meta('display_name', $user->ID).'</strong></td>';
-                    //if(get_the_author_meta('description', $user->ID)) echo '<td>'.get_the_author_meta('description', $user->ID).'</td>'; 
-                    echo '<td>' . $user->user_email .'</td>';
-                    //echo '<li><a href="'.get_bloginfo('url').'/cens/' . $user->user_nicename .'">aaa</a></li>';
-                    echo '<td>'._('Unitat Familiar').': '.get_the_author_meta('uf', $user->ID).'</td>';
-				            echo '<td>'._('A la coope desde ...').': '.get_the_author_meta('coope_desde', $user->ID).'</td>';
-                    echo '<td>'._('Telèfon').': '.get_the_author_meta('telefon', $user->ID).'</td>';
-				            echo '<td>'._('Addreça').': '.get_the_author_meta('address', $user->ID).'</td>';
-				            echo '<td>'._('És menor de 16 anys?').': '.get_the_author_meta('es_menor', $author->post_author).'</td>';
-				            echo '</tr>';
-                }
-                
-              echo '</tbody></table></div>';
-            endforeach;
-            echo '</div>';
-            ?>
+                	<table class="zebra-striped">
+                  	<thead>
+	                    <tr>
+	                    <th><?php echo _('Unitat Familiar');?></th>
+	                    <th><?php echo _('Nom');?></th>
+	                    <th><?php echo _('Email');?></th>
+	                    <th><?php echo _('Telèfon');?></th>
+	                    <th><?php echo _('Adreça');?></th>
+	                    <th><?php echo _('A la coope desde ...');?></th>
+	                    <th><?php echo _('És menor de 16 anys?');?></th>
+	                    </tr>
+	                  </thead>
+	                <tbody>
+	                <?php
+	                foreach ($blogusers as $user) {
+							echo '<tr>';
+								echo '<td>'.get_the_author_meta('uf', $user->ID).'</td>';
+								echo '<td><strong>'.get_the_author_meta('display_name', $user->ID).'</strong></td>';
+								echo '<td><a href="mailto:' . $user->user_email .'">' . $user->user_email .'</a></td>';
+								echo '<td>'.get_the_author_meta('telefon', $user->ID).'</td>';
+								echo '<td>'.get_the_author_meta('address', $user->ID).'</td>';
+								echo '<td>'.get_the_author_meta('coope_desde', $user->ID).'</td>';
+								echo '<td>'.get_the_author_meta('es_menor', $user->ID).'</td>';
+	                    //if(get_the_author_meta('description', $user->ID)) echo '<td>'.get_the_author_meta('description', $user->ID).'</td>'; 
+	                    //echo '<li><a href="'.get_bloginfo('url').'/cens/' . $user->user_nicename .'">aaa</a></li>';
+	               	echo '</tr>';
+                	} ?>
+						</tbody>
+					</table>
+				</div><!-- /role -->
+			<?php 
+			endif;
+		endforeach; ?>
+	</div> <!-- /#tabs -->
 						<?php /** end CENS ******************************* */?>
 						
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'coraline' ), 'after' => '</div>' ) ); ?>

@@ -78,11 +78,11 @@
 		// custom navigation for diferent roles
 		if ( is_user_logged_in() ) {
 			global $current_user;
-			$userRole = ($current_user->data->wp_capabilities);
-			$role = key($userRole);
-			unset($userRole);
-			if ($role == 'administrator' || $role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
-			if ($role == 'administrator' || $role == 'ruscaire' || $role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
+			$currUserRole = ($current_user->data->wp_capabilities);
+			$user_role = key($currUserRole);
+			unset($currUserRole);
+			if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
+			if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
 		}
 		?>
 		</nav>

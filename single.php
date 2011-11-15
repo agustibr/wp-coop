@@ -20,7 +20,7 @@ get_header(); ?>
 				if ($post_type == 'cistella') {
 					$can_read_cpt="read_{$post_type_slug}";
 					if ( current_user_can( $can_read_cpt ) )  get_template_part( 'content', 'single' );
-					else get_template_part( 'content', 'nologged' ); 
+					else get_template_part( 'content', 'nopermission' ); 
 				} else {
 					get_template_part( 'content', 'single' );
 				}
