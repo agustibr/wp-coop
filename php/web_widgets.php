@@ -1,7 +1,6 @@
 <?php
 
 // Widget que mosta la setmana actual
-// [ Setmana:34 ]
 function widget_num_setmana($args) {
     extract($args);
 ?>
