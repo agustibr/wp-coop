@@ -25,7 +25,7 @@ include(CoopTheme_PATH.'/php/user_notification.php');
 // inclou js pel tema
 include(CoopTheme_PATH.'/php/web_scripts.php');
 
-// inclou Receptes
+// inclou Custom Post types i Taxonomies
 include(CoopTheme_PATH.'/php/web_cpt.php');
 
 
