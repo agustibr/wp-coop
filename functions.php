@@ -5,6 +5,7 @@ define('CoopTheme_PATH', dirname(__FILE__));
 define('CoopTheme_URL', get_theme_root_uri() . '/wp-coop');
 //
 
+/****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
 
 // incloure 1 cop per crear ROLS i PERMISOS
 include(CoopTheme_PATH.'/php/user_roles.php');
@@ -40,9 +41,6 @@ include(CoopTheme_PATH.'/php/web_widgets.php');
 
 
 /**** END PERMANENTS ****/
-
-/****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
-
 
 /*
 // WP PERFONMANCE
