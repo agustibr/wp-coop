@@ -8,10 +8,10 @@ function my_scripts_method_1() {
 add_action('wp_enqueue_scripts', 'my_scripts_method_1');
 
 function my_scripts_method_2() {
-    wp_register_script( 'my_script', CoopTheme_URL.'/js/bootstrap-tabs.js');
+    wp_register_script( 'my_script', CoopTheme_URL.'/js/my-script.js');
     wp_enqueue_script( 'my_script' );
 }   
-//add_action('wp_enqueue_scripts', 'my_scripts_method_2');
+add_action('wp_enqueue_scripts', 'my_scripts_method_2');
 
 
 

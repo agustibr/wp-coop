@@ -10,9 +10,10 @@ Version:        0.0.1
 /*@import url("https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css");*/
 
 @import url("../toolbox/style.css");
-/*@import url("http://cachedcommons.org/cache/960/0.0.0/stylesheets/960-min.css");
 @import url("css/bootstrap.min.css");
-
+@import url("http://cachedcommons.org/cache/960/0.0.0/stylesheets/960-min.css");
+/*@import url(http://fonts.googleapis.com/css?family=Sniglet:800);*/
+/*
 COLORS:
 * green-dark  : #115900;
 * green-light : #9BD28E;
@@ -23,20 +24,93 @@ COLORS:
 * purple-dark : #3B0466;
 * purple-light: #D7BCED;
  */
-body {background:#ddd url(img/dark.jpg);font-family:sans-serif;}
-#primary-menu {margin:0 0 1em 0;}
-#primary-menu li, #page-nav li { margin: 0 1px;}
-#primary-menu li a {border:1px solid #999;border-width: 0 0 2px 0px;background:transparent;font-family:sans-serif;}
-#primary-menu .actualitat a {border-color: #9BD28E;color:#115900;}
-.menu .recepta, .menu .cistella {border:none;background:transparent;}
-#primary-menu .recepta a {border-color:#D3975D;color:#472300;}
-#primary-menu .cistella a {border-color:#D7BCED;color:#3B0466;}
+ html, body {min-height:100%;}
+body {background:#ddd url(img/elrusc-fons.jpg);font-family:sans-serif;}
 
+#site-title {font-family: 'Sniglet', cursive;}
+#branding {background: transparent url(img/elrusc-header.png) no-repeat right top;}
+/* MENU */
+nav {
+    background: transparent
+    display: block;
+    float: left;
+    margin: 0 auto 1em;
+    width: auto;
+}
+nav > div {float:left;}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+nav li {
+    float: left;
+    position: relative;
+}
+nav a {
+    display: block;
+    line-height: 2em;
+    padding: 0 1em;
+    text-decoration: none;
+    border:1px solid #999;
+    border-width: 0 0 2px 0px;
+    background:transparent;
+}
+nav a { margin-right:2px;}
+nav ul ul {
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    display: none;
+    float: left;
+    position: absolute;
+    top: 2em;
+    left: 0;
+    z-index: 99999;
+}
+nav ul ul ul {
+    left: 100%;
+    top: 0;
+}
+nav ul ul a {
+    line-height: 1em;
+    padding: .5em .5em .5em 1em;
+    width: 10em;
+    height: auto;
+    white-space:nowrap;
+    
+}
+nav li:hover > a,
+nav ul ul :hover > a {
+    background: #dedede;
+}
+nav ul ul a:hover {
+    background: #cecece;
+}
+nav ul li:hover > ul {
+    display: block;
+}
+
+
+
+.menu {margin:0 0 1em 0;}
+.menu li, #page-nav li { margin: 0 1px;}
+.menu .actualitat a {border-color: #9BD28E;color:#115900;}
+.menu .recepta, .menu .cistella {border:none;background:transparent;}
+.menu .recepta a {border-color:#D3975D;color:#472300;}
+.menu .cistella a {border-color:#D7BCED;color:#3B0466;}
+.menu .current-menu-item > a {font-weight:bold;}
+
+.menu .current-menu-item.recepta a {border-color:#472300;}
+.menu .current-menu-item.actualitat a {border-color:#115900;}
+.menu .current-menu-item.cistella a {border-color:#3B0466;}
+
+/*MAIN*/
 .post {background:#fff;border:1px solid #9BD28E; }
 .post.sticky {border:5px solid #9BD28E;}
 .post, .singular .hentry {padding:20px;margin:10px auto;}
 .post a:hover {text-decoration:underline;color:#090;}
-.post a {color:#115900;font-weight:normal;text-decoration:none;}
+.post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 
 .recepta {background:#fff; border:1px solid #D3975D;}
 .recepta.sticky {border:5px solid #D3975D;}
@@ -48,14 +122,8 @@ body {background:#ddd url(img/dark.jpg);font-family:sans-serif;}
 .cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
 .hentry.cistella {padding:20px;margin:10px auto;}
 
-.post h1 a:visited {color:#000 !important;font-style:italic;}
 
 .home .post {max-height:200px;overflow:hidden;font-size:.9em;}
 
 .home .post img {width:100%;}
 
-/*MENU*/
-#primary-menu .current-menu-item > a {font-weight:bold;}
-#primary-menu .current-menu-item.recepta a {border-color:#472300;}
-#primary-menu .current-menu-item.actualitat a {border-color:#115900;}
-#primary-menu .current-menu-item.cistella a {border-color:#3B0466;}

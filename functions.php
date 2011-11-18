@@ -4,6 +4,9 @@
 define('CoopTheme_PATH', dirname(__FILE__));
 define('CoopTheme_URL', get_theme_root_uri() . '/wp-coop');
 //
+define('WP_POST_REVISIONS', 5); // 2 post revisions
+define('EMPTY_TRASH_DAYS', 5 ); // Empty trash every 2 days
+//add_filter( 'show_admin_bar', '__return_false' ); // hide admin bar (frontend)
 
 /****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
 

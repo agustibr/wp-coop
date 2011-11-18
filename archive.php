@@ -22,6 +22,9 @@ get_header(); ?>
 				<header class="page-header">
 					<h1 class="page-title">
 						<?php
+						if ( is_post_type_archive( array('cistella','recepta') ) ) {
+					    	post_type_archive_title();
+						} else {
 							if ( is_day() ) :
 								printf( __( 'Daily Archives: %s', 'toolbox' ), '<span>' . get_the_date() . '</span>' );
 							elseif ( is_month() ) :
@@ -29,8 +32,9 @@ get_header(); ?>
 							elseif ( is_year() ) :
 								printf( __( 'Yearly Archives: %s', 'toolbox' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 							else :
-								_e( 'Archives', 'toolbox' );
+								_e( 'Archives', 'wp-coop' );
 							endif;
+						}
 						?>
 					</h1>
 				</header>
@@ -38,7 +42,7 @@ get_header(); ?>
 				<?php rewind_posts(); ?>
 
 				<?php toolbox_content_nav( 'nav-above' ); ?>
-
+				<div class="clear"></div>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
@@ -48,8 +52,9 @@ get_header(); ?>
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
 						$post_type = get_post_type( get_the_ID() );
-						$post_type_obj = get_post_type_object( $post_type );
-						$post_type_slug = $post_type_obj->rewrite['slug'];
+						$post_type_object = get_post_type_object( $post_type );
+						$post_type_slug = $post_type_object->rewrite['slug'];
+						//$post_type_labels = get_post_type_labels( $post_type_object );
 						if ($post_type == 'cistella') {
 							$can_read_cpt="read_{$post_type_slug}";
 							if ( current_user_can( $can_read_cpt ) )  get_template_part( 'content', get_post_format() );

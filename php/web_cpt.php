@@ -1,6 +1,5 @@
 <?php
 
-
 add_action('init', 'codex_custom_init');
 function codex_custom_init() 
 {

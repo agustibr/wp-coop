@@ -60,18 +60,18 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="page" class="hfeed">
-	<header id="branding" role="banner">
+<div class="hfeed container_16">
+	<header id="branding" role="banner" class="grid_16">
 		<hgroup>
 			<h1 id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
-		<nav id="access" role="navigation">
+		<nav role="navigation">
 			<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
 			<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
 		</nav><!-- #access -->
 		<nav role="utilities">
 		<?php
@@ -87,5 +87,5 @@
 		?>
 		</nav>
 	</header><!-- #branding -->
-
-	<div id="main">
+	<div class="clear"></div>
+	<div id="main" class="grid_16">
