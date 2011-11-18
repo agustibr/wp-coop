@@ -44,7 +44,21 @@ include(CoopTheme_PATH.'/php/web_widgets.php');
 
 
 /**** END PERMANENTS ****/
-
+// Remove Private and Protected Prefix. This function removes the "Privite:" prefix from posts and pages marked private.
+function the_title_trim($title) {
+$title = attribute_escape($title);
+$findthese = array(
+    '#Protected:#',
+    '#Privat:#'
+);
+$replacewith = array(
+    '', // What to replace "Protected:" with
+    '' // What to replace "Private:" with
+);
+$title = preg_replace($findthese, $replacewith, $title);
+return $title;
+}
+add_filter('the_title', 'the_title_trim');
 /*
 // WP PERFONMANCE
 // Display DB Queries, Time Spent and Memory Consumption

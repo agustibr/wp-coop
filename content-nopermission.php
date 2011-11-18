@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying for Not logged Users
+ * The template for displaying 401 (no permission)
  *
  * Learn more: http://codex.wordpress.org/Function_Reference/get_template_part
  */
