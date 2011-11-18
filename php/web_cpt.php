@@ -219,3 +219,14 @@ function coop_map_meta_cap( $caps, $cap, $user_id, $args ) {
 	/* Return the capabilities required by the user. */
 	return $caps;
 }
+
+
+// Changing "Posts" menu name in admin to whatever you wish (e.g. "Articles")
+add_filter('gettext','change_post_to_article');
+add_filter('ngettext','change_post_to_article');
+
+function change_post_to_article( $translated ) {
+    $translated = str_ireplace('Entrada','Actualitat',$translated );// ireplace is PHP5 only
+    $translated = str_ireplace('Entrades','Actualitats',$translated );
+    return $translated;
+}
