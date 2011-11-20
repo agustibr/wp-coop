@@ -9,6 +9,7 @@ I keep these handy, this is the right way to do them without a plugin. They set 
 // To add the new role, using 'international' as the short name and
 // 'International Blogger' as the displayed name in the User list and edit page:
 
+/*
 add_role('ruscaire', 'Ruscaire', array(
     'read' => true, // True allows that capability, False specifically removes it.
     'edit_posts' => true,
@@ -44,6 +45,7 @@ add_role('proveidor-arc_natura', 'Proveidor - Arc de la Natura', array(
 	'read_cistelles' => true,
 	'edit_published_cistelles' => true,
 ));
+*/
 /*
 add_role('exruscaire', 'Exruscaire', array(
     'read' => true
@@ -70,8 +72,8 @@ $edit_role->add_cap('read_private_posts');
 $edit_role->add_cap('read_private_pages');
 */
 //$edit_role->remove_cap('delete_published_posts');
-
-	$edit_role = get_role('administrator');
+/*
+	$edit_role = get_role('ruscaire');
 	$edit_role->add_cap('read_cistelles');
 	$edit_role->add_cap('read_private_cistelles');
 	$edit_role->add_cap('edit_published_cistelles');
@@ -79,7 +81,7 @@ $edit_role->add_cap('read_private_pages');
 	$edit_role->add_cap('delete_cistelles');
 	$edit_role->add_cap('edit_cistelles');
 	$edit_role->add_cap('publish_cistelles');
-
+*/
 
 // Change URL Slug from Author to Cens
 function new_author_base() {
