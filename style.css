@@ -26,12 +26,11 @@ COLORS:
  */
  html, body {min-height:100%;}
 body {background:#ddd url(img/elrusc-fons.jpg);font-family:sans-serif;}
-
 #site-title {font-family: 'Sniglet', cursive;}
 #branding {background: transparent url(img/elrusc-header.png) no-repeat right top;}
 /* MENU */
 nav {
-    background: transparent
+    background: #fff;
     display: block;
     float: left;
     margin: 0 auto 1em;
@@ -105,19 +104,22 @@ nav ul li:hover > ul {
 .menu .current-menu-item.actualitat a {border-color:#115900;}
 .menu .current-menu-item.cistella a {border-color:#3B0466;}
 
-/*MAIN*/
-.post {background:#fff;border:1px solid #9BD28E; }
+/* MAIN */
+#main {}
+
+article {padding:20px;margin:10px auto; background:#fff; border-radius:5px; }
+
+.post {background:#fff;border:1px solid #9BD28E;  }
 .post.sticky {border:5px solid #9BD28E;}
-.post, .singular .hentry {padding:20px;margin:10px auto;}
 .post a:hover {text-decoration:underline;color:#090;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 
-.recepta {background:#fff; border:1px solid #D3975D;}
+.recepta {border:1px solid #D3975D;}
 .recepta.sticky {border:5px solid #D3975D;}
 .recepta a {color:#472300;font-weight:normal;text-decoration:none;}
 .hentry.recepta {padding:20px;margin:10px auto;}
 
-.cistella {background:#fff; border:1px solid #D7BCED;}
+.cistella {border:1px solid #D7BCED;}
 .cistella.sticky {border:5px solid #D7BCED;}
 .cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
 .hentry.cistella {padding:20px;margin:10px auto;}
@@ -127,3 +129,6 @@ nav ul li:hover > ul {
 
 .home .post img {width:100%;}
 
+/* SECONDARY */
+aside {padding:1em;margin-bottom:1em;background:#222;border-radius:5px;}
+aside h1 {font-size: 1em; font-weight: bold; padding: 0; margin: 0; line-height: 1.5em; color: #FFF;}
