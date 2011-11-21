@@ -88,4 +88,15 @@
 		</nav>
 	</header><!-- #branding -->
 	<div class="clear"></div>
+	<div class="grid_16">
+		<?php if ( function_exists( 'breadcrumb_trail' ) )
+			$args = array(
+			'before' => false,
+			'after' => false,
+			'front_page' => false,
+			'show_home' => __('elRusc.org'),
+			);
+			breadcrumb_trail( $args ); ?>
+	</div>
+	<div class="clear"></div>
 	<div id="main" class="grid_16">

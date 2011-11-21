@@ -44,6 +44,18 @@ include(CoopTheme_PATH.'/php/web_widgets.php');
 
 
 /**** END PERMANENTS ****/
+add_theme_support( 'breadcrumb-trail' );
+add_theme_support( 'loop-pagination' );
+function extensions() {
+
+        /* Load the Breadcrumb Trail extension if supported and the plugin isn't active. */
+        if ( !function_exists( 'breadcrumb_trail' ) )
+            require_if_theme_supports( 'breadcrumb-trail', CoopTheme_PATH . '/extensions/breadcrumb-trail/breadcrumb-trail.php' );
+        
+        if ( !function_exists( 'loop-pagination' ) )
+            require_if_theme_supports( 'loop-pagination', CoopTheme_PATH . '/extensions/loop-pagination.php' );
+}
+extensions();
 // Remove Private and Protected Prefix. This function removes the "Privite:" prefix from posts and pages marked private.
 function the_title_trim($title) {
 $title = attribute_escape($title);

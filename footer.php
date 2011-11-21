@@ -10,6 +10,16 @@
  */
 ?>
 		<div class="clear"></div>
+		<?php
+		if ( function_exists( 'loop_pagination' ) )
+			// more info: http://codex.wordpress.org/Function_Reference/paginate_links
+			$args = array(
+				'before' => '<div class="pagination">', // Begin loop_pagination() arguments.
+				'after' => '</div>',
+				'show_all' => true,
+				'type'=> 'list',
+			);
+			loop_pagination( $args ); ?>
 	</div><!-- #main -->
 	<div class="clear"></div>
 	<footer id="colophon" role="contentinfo">
