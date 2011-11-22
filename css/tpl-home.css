@@ -1,0 +1,68 @@
+/* Featured slider ************************************************/
+#slider-container {
+	overflow: hidden;
+	width: 600px;
+	height: 250px;
+	margin: 0 0 30px 0;
+	}
+#slider {
+	overflow: hidden;
+	width: 580px;
+	height: 230px;
+	}
+.feature {
+	overflow: hidden;
+	width: 560px;
+	height: 210px;
+	padding: 10px 10px 0 10px;
+	border: none !important;
+	}
+#slider-container a {
+	font-weight: bold;
+	}
+.feature img {
+	float: left;
+	max-width: 230px;
+	max-height: 200px;
+	height: 100%;
+	}
+#slider .feature .entry-title {
+	font-size: 21px;
+	}
+#slider .feature .entry-title a {
+	}
+.feature .byline {
+	margin-bottom: 15px;
+	}
+.more-link {
+	float: left;
+	}
+.more-link:hover {
+	}
+
+/* Slider controls */
+.slider-controls {
+	float: left;
+	height: 20px;
+	overflow: hidden;
+	clear: both;
+	line-height: 15px;
+	margin: 0 0 0;
+	text-align:right;
+	}
+.slider-controls a {cursor:pointer;font-weight:normal;}
+.slider-controls .slider-prev {
+
+	}
+.slider-controls .slider-prev:hover {
+	}
+.slider-controls .slider-pause {
+
+	}
+.slider-controls .slider-pause:hover, .slider-controls a.paused {
+	}
+.slider-controls .slider-next {
+
+	}
+.slider-controls .slider-next:hover {
+	}

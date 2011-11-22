@@ -7,11 +7,8 @@
  */
 
 get_header(); ?>
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.js" type="text/javascript"></script> 
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
-
 	<div id="primary" class="">
-		<div id="content" role="main">
+		<div id="contento" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -19,21 +16,27 @@ get_header(); ?>
 
 				<div class="entry-content">
 					<?php the_content(); ?>
-					<?php /** CENS ******************************* */
+					<?php /** CENS *******************************/
 					global $wp_roles;
-           			echo '<div id="tabs"><ul>';
+           			echo '<ul class="tabs" data-tabs="tabs">';
             		foreach ( $wp_roles->role_names as $role => $role_name ) :
-						if($role!='administrator') echo '<li><a href="#'.$role.'">'.$role_name.'</a></li>';
+            			$tab_class = '';
+            			if($role =='ruscaire') $tab_class = 'class="active"';
+						if($role!='administrator') echo '<li '.$tab_class.'><a href="#'.$role.'">'.$role_name.'</a></li>';
             		endforeach;
-            		echo '</ul>';
+            		echo '</ul><div class="tab-content">';
 					foreach ( $wp_roles->role_names as $role => $role_name ) :
 						if($role!='administrator'):
-							echo '<div id="'.$role.'">';
 							//$blogusers = get_users('blog_id=1&orderby=nicename&role=subscriber');
 							$options = 'role='.$role;
-							if($role=='ruscaire') $options = 'meta_key=uf&role='.$role;
+							$tab_pane_class = "tab-pane";
+							if($role=='ruscaire') :
+								$options = 'meta_key=uf&role='.$role;
+								$tab_pane_class = "tab-pane active";
+							endif;
+							echo '<div id="'.$role.'" class="'.$tab_pane_class.'" >';
                 			$blogusers = get_users($options); ?>
-		                	<table class="zebra-striped">
+		                	<table class="zebra-striped tablesorter">
 	    		              	<thead>
 		        		            <tr>
 		            			        <?php if( ($role!='espera') && ($role!='proveidor-arc_natura') ) echo '<th>'._('Unitat Familiar').'</th>';?>
@@ -52,7 +55,7 @@ get_header(); ?>
 		                		<?php
 		                		foreach ($blogusers as $user) {
 								echo '<tr>';
-									if( ($role!='espera') && ($role!='proveidor-arc_natura') ) echo '<td>'.get_the_author_meta('uf', $user->ID).'</td>';
+									if( ($role!='espera') && ($role!='proveidor-arc_natura') ) echo '<td>U.F. '.get_the_author_meta('uf', $user->ID).'</td>';
 									echo '<td><strong>'.get_the_author_meta('display_name', $user->ID).'</strong></td>';
 									echo '<td><a href="mailto:' . $user->user_email .'">' . $user->user_email .'</a></td>';
 									echo '<td>'.get_the_author_meta('telefon', $user->ID).'</td>';
@@ -80,8 +83,3 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php get_footer(); ?>
-<script>
-  jQuery(document).ready(function($) {
-   $('#tabs').tabs();
-  });
-</script>

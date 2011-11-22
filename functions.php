@@ -43,9 +43,27 @@ add_action('wp_head', 'favicon_link');
 include(CoopTheme_PATH.'/php/web_widgets.php');
 
 
+/**
+ * Adds JavaScript and CSS to Front Page page template.
+ */
+function coop_front_page_template() {
+
+    /* If we're not looking at the front page template, return. */
+    if ( !is_page_template( 'tpl-home.php' ) )
+        return;
+
+    /* Load the jQuery Cycle plugin JavaScript and custom JavaScript for it. */
+    wp_enqueue_script( 'slider', get_stylesheet_directory_uri() . '/js/jquery.cycle.js', array( 'jquery' ), 0.1, true );
+
+    /* Load the front page stylesheet. */
+    wp_enqueue_style( 'front-page', get_stylesheet_directory_uri() . '/css/tpl-home.css', false, '0.1', 'screen' );
+}
+add_action( 'template_redirect', 'coop_front_page_template' );
+
 /**** END PERMANENTS ****/
 add_theme_support( 'breadcrumb-trail' );
 add_theme_support( 'loop-pagination' );
+add_theme_support( 'get_the_image' );
 function extensions() {
 
         /* Load the Breadcrumb Trail extension if supported and the plugin isn't active. */
@@ -54,6 +72,9 @@ function extensions() {
         
         if ( !function_exists( 'loop-pagination' ) )
             require_if_theme_supports( 'loop-pagination', CoopTheme_PATH . '/extensions/loop-pagination.php' );
+        
+        if ( !function_exists( 'get_the_image' ) )
+            require_if_theme_supports( 'get_the_image', CoopTheme_PATH . '/extensions/get-the-image.php' );
 }
 extensions();
 // Remove Private and Protected Prefix. This function removes the "Privite:" prefix from posts and pages marked private.
