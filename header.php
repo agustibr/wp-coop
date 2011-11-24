@@ -60,34 +60,41 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div class="hfeed container_16">
-	<header id="branding" role="banner" class="grid_16">
-		<hgroup>
-			<h1 id="site-title"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 id="site-description"><?php bloginfo( 'description' ); ?></h2>
+<div class="hfeed">
+	<header id="branding" role="banner">
+		<hgroup class="container_16">
+			<h1 id="site-title" class="grid_4"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 id="site-description" class="grid_8"><?php bloginfo( 'description' ); ?></h2>
+			<div class="clear"></div>
 		</hgroup>
+		<div class="clear"></div>
+		<div class="container_16">
+			<nav class="grid_16" role="navigation">
+				<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
+				<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
 
-		<nav role="navigation">
-			<h1 class="assistive-text section-heading"><?php _e( 'Main menu', 'toolbox' ); ?></h1>
-			<div class="skip-link screen-reader-text"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'toolbox' ); ?>"><?php _e( 'Skip to content', 'toolbox' ); ?></a></div>
+				<?php
+				// menu for all users
+				wp_nav_menu( array( 'theme_location' => 'primary') );
 
-			<?php wp_nav_menu( array( 'theme_location' => 'primary') ); ?>
-		</nav><!-- #access -->
-		<nav role="utilities">
-		<?php
-		// custom navigation for diferent roles
-		if ( is_user_logged_in() ) {
-			global $current_user;
-			$currUserRole = ($current_user->data->wp_capabilities);
-			$user_role = key($currUserRole);
-			unset($currUserRole);
-			if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
-			if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
-		}
-		?>
-		</nav>
+				// custom navigation for diferent roles
+				if ( is_user_logged_in() ) :
+					global $current_user;
+					$currUserRole = ($current_user->data->wp_capabilities);
+					$user_role = key($currUserRole);
+					unset($currUserRole);
+					if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
+					if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
+				endif;
+				?>
+				<div class="clear"></div>
+			</nav>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
 	</header><!-- #branding -->
 	<div class="clear"></div>
+	<div id="main" class="container_16">
 	<div class="grid_16">
 		<?php if ( function_exists( 'breadcrumb_trail' ) )
 			$args = array(
@@ -99,4 +106,3 @@
 			breadcrumb_trail( $args ); ?>
 	</div>
 	<div class="clear"></div>
-	<div id="main" class="grid_16">

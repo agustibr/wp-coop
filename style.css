@@ -5,11 +5,9 @@ Description:    Tema per a el Rusc.
 Author:         Agustí Belloc
 Author URI:     http: //agusti.cat/
 Template:       toolbox
-Version:        0.0.1
+Version:        0.0.2
 */
-/*@import url("https://raw.github.com/twitter/bootstrap/master/bootstrap.min.css");*/
-
-@import url("../toolbox/style.css");
+/*@import url("../toolbox/style.css");*/
 @import url("css/bootstrap.min.css");
 @import url("css/960-min.css");
 /*@import url(http://fonts.googleapis.com/css?family=Sniglet:800);*/
@@ -24,39 +22,94 @@ COLORS:
 * purple-dark : #3B0466;
 * purple-light: #D7BCED;
  */
- html, body {min-height:100%;}
-body {background:#ddd url(img/elrusc-fons.jpg);font-family:sans-serif;}
-#site-title {font-family: 'Sniglet', cursive;}
-#branding {background: transparent url(img/elrusc-header.png) no-repeat right top;}
-/* MENU */
-nav {
-    background: #fff;
-    display: block;
-    float: left;
-    margin: 0 auto 1em;
-    width: auto;
+
+/* Text meant only for screen readers */
+.screen-reader-text,
+.assistive-text {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px, 1px, 1px, 1px);
 }
-nav > div {float:left;}
-nav ul {
+
+/* Alignment */
+.alignleft {
+    display: inline;
+    float: left;
+}
+.alignright {
+    display: inline;
+    float: right;
+}
+.aligncenter {
+    clear: both;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* =Header
+-------------------------------------------------------------- */
+
+#site-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+#site-description {
+    font-size: 1em;
+    font-weight: normal;
+}
+#site-title, #site-description {line-height: 120px;}
+/* 404 page */
+.error404 .widget {
+    float: left;
+    width: 33%;
+}
+.error404 .widget .widgettitle,
+.error404 .widget ul {
+    margin-right: 1em;
+}
+.error404 .widget_tag_cloud {
+    clear: both;
+    float: none;
+    width: 100%;
+}
+
+
+html, body {min-height:100%;}
+body {background: #f3f3f3;font-family:sans-serif;}
+#site-title {font-family: 'Sniglet', cursive;}
+#branding {background:url(img/header-bg.png);}
+#branding hgroup {background: transparent url(img/elrusc-header.png) no-repeat right top;}
+#site-title a {color:#000;}
+/* MENU */
+#branding nav {
+    border-radius: 3px 3px 0 0 ;
+    background: #3F636B;
+    display: block;
+    padding-top: .3em;
+    padding-bottom: .3em;
+}
+#branding nav > div {float:left;}
+#branding nav ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
 }
-nav li {
+#branding nav li {
     float: left;
     position: relative;
+    border:none;
 }
-nav a {
+#branding nav a {
     display: block;
     line-height: 2em;
     padding: 0 1em;
     text-decoration: none;
-    border:1px solid #999;
-    border-width: 0 0 2px 0px;
-    background:transparent;
+    background: #3F636B;
+    color: #DDF4FB;
+    text-transform: uppercase;
 }
-nav a { margin-right:2px;}
-nav ul ul {
+#branding nav a { margin-right:2px;}
+#branding nav ul ul {
     box-shadow: 0 3px 3px rgba(0,0,0,0.2);
     -moz-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
     -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.2);
@@ -67,11 +120,11 @@ nav ul ul {
     left: 0;
     z-index: 99999;
 }
-nav ul ul ul {
+#branding nav ul ul ul {
     left: 100%;
     top: 0;
 }
-nav ul ul a {
+#branding nav ul ul a {
     line-height: 1em;
     padding: .5em .5em .5em 1em;
     width: 10em;
@@ -79,34 +132,24 @@ nav ul ul a {
     white-space:nowrap;
     
 }
-nav li:hover > a,
-nav ul ul :hover > a {
-    background: #dedede;
+#branding nav li:hover > a,
+#branding nav ul ul :hover > a {
+    background: #DDF4FB;
+    color: #3F636B;
+    text-decoration: none;
 }
-nav ul ul a:hover {
-    background: #cecece;
+#branding nav ul ul a:hover {
 }
-nav ul li:hover > ul {
+#branding nav ul li:hover > ul {
     display: block;
 }
 
-
-
-.menu {margin:0 0 1em 0;}
-.menu li, #page-nav li { margin: 0 1px;}
-.menu .actualitat a {border-color: #9BD28E;color:#115900;}
-.menu .recepta, .menu .cistella {border:none;background:transparent;}
-.menu .recepta a {border-color:#D3975D;color:#472300;}
-.menu .cistella a {border-color:#D7BCED;color:#3B0466;}
-.menu .current-menu-item > a {font-weight:bold;}
-
-.menu .current-menu-item.recepta a {border-color:#472300;}
-.menu .current-menu-item.actualitat a {border-color:#115900;}
-.menu .current-menu-item.cistella a {border-color:#3B0466;}
+#branding nav .current-menu-item > a {font-weight:bold;}
+.breadcrumb {border-radius: 0 0 3px 3px;}
 
 /* MAIN */
-#main {}
-
+#content {padding:20px 0;}
+#content nav {width:100%;}
 article {padding:20px;margin:10px auto; background:#fff; border-radius:5px; }
 
 .post {background:#fff;border:1px solid #9BD28E;  }
@@ -130,5 +173,12 @@ article {padding:20px;margin:10px auto; background:#fff; border-radius:5px; }
 .home .post img {width:100%;}
 
 /* SECONDARY */
-aside {padding:1em;margin-bottom:1em;background:#222;border-radius:5px;}
-aside h1 {font-size: 1em; font-weight: bold; padding: 0; margin: 0; line-height: 1.5em; color: #FFF;}
+aside {padding:1em;margin-bottom:1em;background: #3F636B;border-radius:5px;}
+aside h1 {font-size: 1em; font-weight: bold; padding: 0; margin: 0; line-height: 1.5em; color: #DDF4FB;}
+aside a  {color:#99C47C; display:block; padding:.2em .3em;margin-bottom:.1em;}
+aside a:hover {color:#3F636B;background:#99C47C;text-decoration:none;}
+aside ul, aside li {list-style-type:none; margin-left:0;}
+
+.home article {background:#DFFBE5;}
+.home article a {color:#325B3A;}
+

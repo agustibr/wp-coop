@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-		<section id="primary">
+		<section id="primary" class="grid_12">
 			<div id="content" role="main">
 
 			<?php if ( have_posts() ) : ?>

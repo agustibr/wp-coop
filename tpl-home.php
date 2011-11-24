@@ -9,7 +9,7 @@
 
 get_header(); ?>
 
-		<div id="primary">
+		<section id="primary" class="grid_12">
 			<div id="content" role="main">
 
 				<!-- Begin feature slider. -->
@@ -145,7 +145,7 @@ get_header(); ?>
 				</article> <!-- #receptes -->
 
 			</div><!-- #content -->
-		</div><!-- #primary -->
+		</section><!-- #primary -->
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
