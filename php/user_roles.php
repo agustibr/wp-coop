@@ -3,6 +3,8 @@
 New Roles and Capabilities - Only run once!
 
 I keep these handy, this is the right way to do them without a plugin. They set a single field (prefix_user_roles) in the options database, and you don't need a plugin to set them. Refer to the Codex page for a list of what capabilities are available and descriptions for what they do. You only need to uncomment one of these blocks, load any page and then comment them again! Here I'm creating a role that's got the capabilities I need:
+
+@link: http://www.garyc40.com/2010/04/ultimate-guide-to-roles-and-capabilities/
 */
 /* Capabilities */
 
@@ -10,34 +12,41 @@ I keep these handy, this is the right way to do them without a plugin. They set 
 // 'International Blogger' as the displayed name in the User list and edit page:
 
 /*
+remove_role('ruscaire');
 add_role('ruscaire', 'Ruscaire', array(
+    
     'read' => true, // True allows that capability, False specifically removes it.
     'edit_posts' => true,
     'delete_posts' => true,
     'edit_published_posts' => true,
     'publish_posts' => true,
-    
-    'edit_receptes' => true,
-    'delete_receptes' => true,
-    'edit_published_receptes' => true,
-    'publish_receptes' => true,
 
+	'read_cistelles' => true,
 	'publish_cistelles' => true,
 	'edit_cistelles' => true,
 	'edit_others_cistelles' => false,
 	'delete_cistelles' => true,
 	'delete_others_cistelles' => true,
 	'read_private_cistelles' => true,
-	'read_cistelles' => true,
 	'edit_published_cistelles' => true,
+
+	'read_receptes' => true,
+	'publish_receptes' => true,
+	'edit_receptes' => true,
+	'edit_others_receptes' => false,
+	'delete_receptes' => true,
+	'delete_others_receptes' => true,
+	'read_private_receptes' => true,
+	'edit_published_receptes' => true,
 	    
     'edit_files' => true,
-    'import' => true,
+    'import' => false,
     'upload_files' => true //last in array needs no comma!
 ));
+/*
 add_role('proveidor-arc_natura', 'Proveidor - Arc de la Natura', array(
+	
 	'read' => true, // True allows that capability, False specifically removes it.
-
 	'publish_cistelles' => true,
 	'edit_cistelles' => true,
 	'delete_cistelles' => true,
@@ -68,8 +77,7 @@ It's sometimes handy to add/remove from an existing role rather than removing an
 **/
 /*
 $edit_role = get_role('ruscaire');
-$edit_role->add_cap('read_private_posts');
-$edit_role->add_cap('read_private_pages');
+$edit_role->add_cap('delete_cistella');
 */
 //$edit_role->remove_cap('delete_published_posts');
 /*

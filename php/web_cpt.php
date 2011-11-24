@@ -27,19 +27,16 @@ function codex_custom_init()
     'show_in_menu' => true, 
     'query_var' => true,
     'rewrite' => array( 'slug' => 'receptes' ),
-    'map_meta_cap'    =>  true,
-    //'capability_type' => 'recepta',
-    /*'capabilities' => array(
-				'publish_posts' => 'publish_receptes',
-				'edit_posts' => 'edit_receptes',
-				'edit_others_posts' => 'edit_others_receptes',
-				'delete_posts' => 'delete_receptes',
-				'delete_others_posts' => 'delete_others_receptes',
-				'read_private_posts' => 'read_private_receptes',
-				'edit_post' => 'edit_recepta',
-				'delete_post' => 'delete_recepta',
-				'read_post' => 'read_recepta',
-			),*/
+    'capability_type' => array('recepta','receptes'),
+    'capabilities' => array(
+		'publish_posts'       => 'publish_receptes',
+		'edit_posts'          => 'edit_receptes',
+		'edit_others_posts'   => 'edit_others_receptes',
+		'delete_posts'        => 'delete_receptes',
+		'delete_others_posts' => 'delete_others_receptes',
+		'read_private_posts'  => 'read_private_receptes',
+
+	),
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => 4,
@@ -72,21 +69,16 @@ function codex_custom_init()
     'show_in_menu' => true, 
     'query_var' => true,
     'rewrite' => array( 'slug' => 'cistelles' ),
-    'map_meta_cap'    =>  true,
     'capability_type' => array( 'cistella','cistelles'),
-	//'capability_type' =>  'cistella',
-    /*'capabilities' => array(
-				'publish_posts' => 'publish_cistelles',
-				'edit_posts' => 'edit_cistelles',
-				'edit_others_posts' => 'edit_others_cistelles',
-				'delete_posts' => 'delete_cistelles',
-				'delete_others_posts' => 'delete_others_cistelles',
-				'read' => 'read_cistelles',
-				'read_private_posts' => 'read_private_cistelles',
-				/*'edit_post' => 'edit_cistella',
-				'delete_post' => 'delete_cistella',
-				'read_post' => 'read_cistella',*/
-		/*	),*/
+    'capabilities' => array(
+		'publish_posts'       => 'publish_cistelles',
+		'edit_posts'          => 'edit_cistelles',
+		'edit_others_posts'   => 'edit_others_cistelles',
+		'delete_posts'        => 'delete_cistelles',
+		'delete_others_posts' => 'delete_others_cistelles',
+		'read'                => 'read_cistelles',
+		'read_private_posts'  => 'read_private_cistelles',
+	),
     'has_archive' => true, 
     'hierarchical' => false,
     'menu_position' => 4,
@@ -175,51 +167,49 @@ function create_recepta_taxonomies()
 }
 
 
-
 add_filter( 'map_meta_cap', 'coop_map_meta_cap', 10, 4 );
 
 function coop_map_meta_cap( $caps, $cap, $user_id, $args ) {
-//echo 'coop_map_meta_cap';
-	/* If editing, deleting, or reading a movie, get the post and post type object. */
-	if ( 'edit_cistella' == $cap || 'delete_cistella' == $cap || 'read_cistella' == $cap ) {
-		$post = get_post( $args[0] );
-		$post_type = get_post_type_object( $post->post_type );
+    $the_post_type = get_post_type( $args[0] );
+    /* If editing, deleting, or reading a custom post type, get the post and post type object. */
+    if ( 'edit_'.$the_post_type == $cap || 'delete_'.$the_post_type == $cap || 'read_'.$the_post_type == $cap ) {
+        $post = get_post( $args[0] );
+        $post_type = get_post_type_object( $post->post_type );
 
-		/* Set an empty array for the caps. */
-		$caps = array();
-	}
+        /* Set an empty array for the caps. */
+        $caps = array();
+    }
 
-	/* If editing a movie, assign the required capability. */
-	if ( 'edit_cistella' == $cap ) {
-		if ( $user_id == $post->post_author )
-			$caps[] = $post_type->cap->edit_posts;
-		else
-			$caps[] = $post_type->cap->edit_others_posts;
-	}
+    /* If editing a custom post type, assign the required capability. */
+    if ( 'edit_'.$the_post_type == $cap ) {
+        if ( $user_id == $post->post_author )
+            $caps[] = $post_type->cap->edit_posts;
+        else
+            $caps[] = $post_type->cap->edit_others_posts;
+    }
 
-	/* If deleting a movie, assign the required capability. */
-	elseif ( 'delete_cistella' == $cap ) {
-		if ( $user_id == $post->post_author )
-			$caps[] = $post_type->cap->delete_posts;
-		else
-			$caps[] = $post_type->cap->delete_others_posts;
-	}
+    /* If deleting a custom post type, assign the required capability. */
+    elseif ( 'delete_'.$the_post_type == $cap ) {
+        if ( $user_id == $post->post_author )
+            $caps[] = $post_type->cap->delete_posts;
+        else
+            $caps[] = $post_type->cap->delete_others_posts;
+    }
 
-	/* If reading a private movie, assign the required capability. */
-	elseif ( 'read_cistella' == $cap ) {
+    /* If reading a private custom post type, assign the required capability. */
+    elseif ( 'read_'.$the_post_type == $cap ) {
 
-		if ( 'private' != $post->post_status )
-			$caps[] = 'read';
-		elseif ( $user_id == $post->post_author )
-			$caps[] = 'read';
-		else
-			$caps[] = $post_type->cap->read_private_posts;
-	}
+        if ( 'private' != $post->post_status )
+            $caps[] = 'read';
+        elseif ( $user_id == $post->post_author )
+            $caps[] = 'read';
+        else
+            $caps[] = $post_type->cap->read_private_posts;
+    }
 
-	/* Return the capabilities required by the user. */
-	return $caps;
+    /* Return the capabilities required by the user. */
+    return $caps;
 }
-
 
 // Changing "Posts" menu name in admin to whatever you wish (e.g. "Articles")
 add_filter('gettext','change_post_to_article');
