@@ -16,7 +16,6 @@ get_header(); ?>
 
 		<section id="primary" class="grid_12">
 			<div id="content" role="main">
-
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
@@ -25,15 +24,24 @@ get_header(); ?>
 						if ( is_post_type_archive( array('cistella','recepta') ) ) {
 					    	post_type_archive_title();
 						} else {
-							if ( is_day() ) :
-								printf( __( 'Daily Archives: %s', 'toolbox' ), '<span>' . get_the_date() . '</span>' );
-							elseif ( is_month() ) :
-								printf( __( 'Monthly Archives: %s', 'toolbox' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-							elseif ( is_year() ) :
-								printf( __( 'Yearly Archives: %s', 'toolbox' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-							else :
-								_e( 'Archives', 'wp-coop' );
-							endif;
+							
+							if( is_tax() ) {
+								$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
+								printf( __( 'Receptes amb: %s', 'wp-coop' ), '<span>' . $term->name . '</span>' );
+							}
+							elseif ( is_day() ) {
+								printf( __( 'Arxiu del Dia: %s', 'wp-coop' ), '<span>' . get_the_date() . '</span>' );
+							}
+							elseif ( is_month() ) {
+								printf( __( 'Arxiu del Mes: %s', 'wp-coop' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
+							}
+							elseif ( is_year() ) {
+								printf( __( 'Arxiu de l\'Any: %s', 'wp-coop' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
+							}
+							else {
+								_e( 'Arxiu', 'wp-coop' );	
+							}
+							
 						}
 						?>
 					</h1>
@@ -41,7 +49,7 @@ get_header(); ?>
 
 				<?php rewind_posts(); ?>
 
-				<?php toolbox_content_nav( 'nav-above' ); ?>
+				<?php //toolbox_content_nav( 'nav-above' ); ?>
 				<div class="clear"></div>
 				<?php /* Start the Loop */ ?>
 				<?php while ( have_posts() ) : the_post(); ?>
@@ -67,7 +75,7 @@ get_header(); ?>
 
 				<?php endwhile; ?>
 
-				<?php toolbox_content_nav( 'nav-below' ); ?>
+				<?php //toolbox_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
 

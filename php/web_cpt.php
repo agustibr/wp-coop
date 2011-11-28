@@ -41,10 +41,10 @@ function codex_custom_init()
     'hierarchical' => false,
     'menu_position' => 4,
     'menu_icon'       =>  'http://elrusc.org/wp-content/icons/recepta_16.png',
-    'supports' => array('title','editor','author','comments')
+    'supports' => array('title','editor','author','comments','thumbnail')
   ); 
   register_post_type('recepta',$args_recepta);
-
+  //add_post_type_support('','thumbnail');
   $labels_cistella = array(
     'name' => _x('Cistelles', 'post type general name'),
     'singular_name' => _x('Cistella', 'post type singular name'),
@@ -160,12 +160,16 @@ function create_recepta_taxonomies()
     'hierarchical' => false,
     'labels' => $labels,
     'show_ui' => true,
-    'update_count_callback' => '_update_post_term_count',
-    'query_var' => true,
-    'rewrite' => array( 'slug' => 'rebost' ),
+    'public'=> true,
+    'show_tagcloud' => true,
+    'show_in_nav_menus' => true,
+    //'update_count_callback' => '_update_post_term_count',
+    'query_var' => 'rebost',
+    'rewrite' => array( 'slug' => 'rebost', 'with_front' => false ),
   ));
 }
 
+/*
 // Changing "Posts" menu name in admin to whatever you wish (e.g. "Articles")
 add_filter('gettext','change_post_to_article');
 add_filter('ngettext','change_post_to_article');
@@ -175,3 +179,4 @@ function change_post_to_article( $translated ) {
     $translated = str_ireplace('Entrades','Actualitats',$translated );
     return $translated;
 }
+*/

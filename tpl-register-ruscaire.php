@@ -56,7 +56,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
  
    get_header(); ?>
 
-		<div id="primary">
+		<div id="primary" class="grid_12">
 			<div id="content" role="main">
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 					<header class="entry-header">
@@ -64,11 +64,11 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<?php the_content(); ?>
-						
+						<?php the_content($my_form); ?>
+						<?php  if ( !post_password_required() ) : ?>
 						<!-- REGISTER FORM STARTS HERE -->
  
-						<?php if ( is_user_logged_in() && !current_user_can( 'create_users' ) ) : ?>
+						 <?php if ( is_user_logged_in() && !current_user_can( 'create_users' ) ) : ?>
  
 							<p class="log-in-out alert">
 							<?php printf( __('You are logged in as <a href="%1$s" title="%2$s">%2$s</a>.  You don\'t need another account.', 'wp-coop'), get_author_posts_url( $curauth->ID ), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e('Log out of this account', 'wp-coop'); ?>"><?php _e('Logout &raquo;', 'wp-coop'); ?></a>
@@ -246,6 +246,8 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 						<?php endif; ?>
  
 						<!-- REGISTER FORM ENDS HERE -->
+						<?php endif; //if ( !post_password_required() ) ?>
+						
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'toolbox' ), 'after' => '</div>' ) ); ?>
 						<?php//edit_post_link( __( 'Edit', 'toolbox' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->

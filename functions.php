@@ -64,6 +64,7 @@ add_action( 'template_redirect', 'coop_front_page_template' );
 add_theme_support( 'breadcrumb-trail' );
 add_theme_support( 'loop-pagination' );
 add_theme_support( 'get_the_image' );
+add_theme_support( 'the_ratings' );
 function extensions() {
 
         /* Load the Breadcrumb Trail extension if supported and the plugin isn't active. */
@@ -75,6 +76,10 @@ function extensions() {
         
         if ( !function_exists( 'get_the_image' ) )
             require_if_theme_supports( 'get_the_image', CoopTheme_PATH . '/extensions/get-the-image.php' );
+        
+        if ( !function_exists( 'the_ratings' ) )
+            require_if_theme_supports( 'the_ratings', CoopTheme_PATH . '/extensions/wp-postratings/wp-postratings.php' );
+            
 }
 extensions();
 // Remove Private and Protected Prefix. This function removes the "Privite:" prefix from posts and pages marked private.
@@ -109,5 +114,32 @@ function performance( $visible = true ) {
 add_action( 'wp_footer', 'performance', 20 );
 */
 
+function toolbox_content_nav( $nav_id ) {
+    global $wp_query;
 
+    ?>
+    <nav id="<?php echo $nav_id; ?>">
+        <h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'wp-coop' ); ?></h1>
+
+    <?php if ( is_single() ) : // navigation links for single posts ?>
+        
+        <div class="pagination"><ul>
+        <?php previous_post_link( '<li class="prev">%link</li>', '' . _x( '&larr;', 'Previous post link', 'toolbox' ) . ' %title' ); ?>
+        <?php next_post_link( '<li class="next">%link</li>', '%title ' . _x( '&rarr;', 'Next post link', 'toolbox' ) . '' ); ?>
+
+    <?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+
+        <?php if ( get_next_posts_link() ) : ?>
+        <div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'toolbox' ) ); ?></div>
+        <?php endif; ?>
+
+        <?php if ( get_previous_posts_link() ) : ?>
+        <div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'toolbox' ) ); ?></div>
+        <?php endif; ?>
+
+    <?php endif; ?>
+
+    </nav><!-- #<?php echo $nav_id; ?> -->
+    <?php
+}
 

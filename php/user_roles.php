@@ -145,7 +145,13 @@ add_role('espera', 'En llista Espera', array(
 ));
 
 */
-
+/**
+add to admin caps for managing cpt !
+$edit_role = get_role('administrator');
+$edit_role->add_cap('publish_receptes');
+$edit_role->add_cap('edit_receptes');
+$edit_role->add_cap('edit_others_receptes');
+**/
 /** To remove one outright or remove one of the defaults: **/
 //	remove_role('editor');
 //	remove_role('author');
@@ -155,6 +161,7 @@ add_role('espera', 'En llista Espera', array(
 /**
 It's sometimes handy to add/remove from an existing role rather than removing and re-adding one. Again, you only need to uncomment it, reload a page and then comment it again. This will store the role/capability properly in the options table. (This allows you, the developer to control them and removes the overhead of the bulky plugins that do the same thing.) Here I'm changing the author role to delete their published posts (the default), but allowing them the capability to edit their published posts (which isn't possible for this role by default)-- using *add_cap* or *remove_cap*.
 **/
-//	$edit_role = get_role('ruscaire');			// Select Role to edit
-//	$edit_role->add_cap('delete_cistella');		// Add capability 
+$edit_role = get_role('administrator');			// Select Role to edit
+$edit_role->add_cap('publish_receptes');		// Add capability 
+$edit_role->add_cap('edit_receptes');        // Add capability 
 //	$edit_role->remove_cap('delete_cistella');	// Remove capability

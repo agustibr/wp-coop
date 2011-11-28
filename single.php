@@ -11,7 +11,7 @@ get_header(); ?>
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
-				<?php toolbox_content_nav( 'nav-above' ); ?>
+				<?php// toolbox_content_nav( 'nav-above' ); ?>
 				
 				<?php 
 				$post_type = get_post_type( get_the_ID() );
@@ -26,10 +26,6 @@ get_header(); ?>
 				}
 				
 				?>
-				<?php toolbox_content_nav( 'nav-below' ); ?>
-
-				<?php comments_template( '', true ); ?>
-
 			<?php endwhile; // end of the loop. ?>
 
 			</div><!-- #content -->

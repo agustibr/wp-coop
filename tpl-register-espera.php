@@ -60,7 +60,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 
 					<div class="entry-content">
 						<?php the_content(); ?>
-						
+						<?php  if ( !post_password_required() ) : ?>
 						<!-- REGISTER FORM STARTS HERE -->
  
 						<?php if ( is_user_logged_in() && !current_user_can( 'create_users' ) ) : ?>
@@ -169,6 +169,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 						<?php endif; ?>
  
 						<!-- REGISTER FORM ENDS HERE -->
+					<?php  endif; //if ( !post_password_required() ) ?>
 						<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'toolbox' ), 'after' => '</div>' ) ); ?>
 						<?php//edit_post_link( __( 'Edit', 'toolbox' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-content -->

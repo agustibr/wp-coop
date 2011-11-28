@@ -74,16 +74,17 @@ get_header(); ?>
 
 				<article id="tabs-receptes" class="grid_4">
 					<h3>Receptes</h3>
-					<ul>
+					<ul class="unstyled">
 						<?php // setup the query
 						$args='&suppress_filters=true&posts_per_page=5&post_type=recepta&order=DESC&orderby=date';								
 						$cust_loop = new WP_Query($args); 
 						if ($cust_loop->have_posts()) : while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
 						?>
 							<li>																					
-								<a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<h5><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 									<?php the_title(); ?>
-								</a>	
+								</a></h5>
+								<?php echo get_the_term_list( get_the_ID(), 'rebost', 'amb: ', ', ', '' ); ?>
 							</li>								
 						<?php endwhile; 
 						endif; 
