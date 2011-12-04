@@ -52,8 +52,6 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 	}
 }
  
- 
- 
    get_header(); ?>
 
 		<div id="primary" class="grid_12">
@@ -64,7 +62,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<?php the_content($my_form); ?>
+						<?php the_content(); ?>
 						<?php  if ( !post_password_required() ) : ?>
 						<!-- REGISTER FORM STARTS HERE -->
  
