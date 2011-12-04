@@ -31,6 +31,9 @@ include(CoopTheme_PATH.'/php/web_scripts.php');
 // inclou Custom Post types i Taxonomies
 include(CoopTheme_PATH.'/php/web_cpt.php');
 
+// inclou Funcions i Templates per als Comentaris
+include(CoopTheme_PATH.'/php/web_comments.php');
+
 
 // inclou favicon
 function favicon_link() {
@@ -65,6 +68,7 @@ add_theme_support( 'breadcrumb-trail' );
 add_theme_support( 'loop-pagination' );
 add_theme_support( 'get_the_image' );
 add_theme_support( 'the_ratings' );
+
 function extensions() {
 
         /* Load the Breadcrumb Trail extension if supported and the plugin isn't active. */
@@ -79,7 +83,7 @@ function extensions() {
         
         if ( !function_exists( 'the_ratings' ) )
             require_if_theme_supports( 'the_ratings', CoopTheme_PATH . '/extensions/wp-postratings/wp-postratings.php' );
-            
+
 }
 extensions();
 // Remove Private and Protected Prefix. This function removes the "Privite:" prefix from posts and pages marked private.

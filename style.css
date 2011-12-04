@@ -52,12 +52,15 @@ COLORS:
 #site-title {
     font-size: 2em;
     font-weight: bold;
+    margin-top:50px;
+    margin-bottom:0;
 }
 #site-description {
     font-size: 1em;
     font-weight: normal;
+    margin-bottom:50px;
 }
-#site-title, #site-description {line-height: 120px;}
+#site-title, #site-description {line-height: 1.3em;}
 /* 404 page */
 .error404 .widget {
     float: left;
@@ -76,7 +79,7 @@ COLORS:
 
 html, body {min-height:100%;}
 body {background: #f3f3f3;font-family:sans-serif;}
-#site-title {font-family: 'Sniglet', cursive;}
+#site-title {font-family: 'Sniglet', cursive;margin-top: 50px;margin-bottom: 0;}
 #branding {background:url(img/header-bg.png);}
 #branding hgroup {background: transparent url(img/elrusc-header.png) no-repeat right top;}
 #site-title a {color:#000;}
@@ -119,6 +122,7 @@ body {background: #f3f3f3;font-family:sans-serif;}
     top: 2em;
     left: 0;
     z-index: 99999;
+    background-color:#3F636B;
 }
 #branding nav ul ul ul {
     left: 100%;
@@ -126,10 +130,12 @@ body {background: #f3f3f3;font-family:sans-serif;}
 }
 #branding nav ul ul a {
     line-height: 1em;
-    padding: .5em .5em .5em 1em;
-    width: 10em;
+    padding: .3em .5em ;
+    min-width: 10em;
+    width:auto;
     height: auto;
     white-space:nowrap;
+    text-transform:none;
     
 }
 #branding nav li:hover > a,
@@ -144,15 +150,17 @@ body {background: #f3f3f3;font-family:sans-serif;}
     display: block;
 }
 
+#branding nav .current-menu-parent > a,
 #branding nav .current-menu-item > a {font-weight:bold;}
 .breadcrumb {border-radius: 0 0 3px 3px;}
 
 /* MAIN */
 #content {padding: 0;}
 #content nav {width:100%;}
-article {padding:20px;margin:0 auto; background:#fff; border-radius:5px; }
-
-.post {background:#fff;border:1px solid #9BD28E;  }
+.home #main {padding-top: 20px;}
+article {padding:20px;margin:0 auto; background:#fff; border-radius:5px; border: 1px solid #DDD;}
+article img {max-width:100%;}
+.post {background:#fff;border:1px solid #9BD28E; margin-bottom: 20px;  }
 .post.sticky {border:5px solid #9BD28E;}
 .post a:hover {text-decoration:underline;color:#090;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
@@ -165,7 +173,7 @@ article {padding:20px;margin:0 auto; background:#fff; border-radius:5px; }
 .cistella {border:1px solid #D7BCED;}
 .cistella.sticky {border:5px solid #D7BCED;}
 .cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
-.hentry.cistella {padding:20px;}
+.hentry.cistella {padding:20px;margin-bottom: 20px;}
 
 
 .home .post {max-height:200px;overflow:hidden;font-size:.9em;}
@@ -182,3 +190,22 @@ aside ul, aside li {list-style-type:none; margin-left:0;}
 .home article {background:#DFFBE5;}
 .home article a {color:#325B3A;}
 
+.page-title.actualitat {color:#115900;}
+
+/* COMMENTS */
+section#comments {padding:20px;margin:20px auto; background:#fff; border-radius:5px; border: 1px solid #DDD;}
+#comments ul, #comments li {list-style-type:none;margin:0;padding:0;}
+#comments ul ul {margin-left:60px;}
+#comments table {margin-bottom:.5em;}
+#comments table, #comments td {border:none;}
+#comments td.avatar {width:44px;}
+#comments .media-grid a {margin:0;}
+#comments .well {margin-bottom:0;padding-bottom:0;padding-top:0;line-height:44px;height:44px;}
+#comments .comment-content {margin:.5em 0 1em;background: #3F636B;border-radius:3px;color:#fff;padding:1.5em;}
+#comments .comment-meta {float:right;color:#BFBFBF;}
+#comments .comment-reply-link {float:right;}
+#comments .comment-reply-link a {color:#fff; font-size:.8em;}
+
+#commentform {margin-bottom:0px;}
+#commentform .actions {margin-top:0; padding-left:100px;}
+#commentform #cancel-comment-reply {float:right;}

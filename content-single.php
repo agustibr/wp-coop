@@ -60,7 +60,4 @@
 		
 		<?php toolbox_content_nav( 'nav-below' ); ?>
 	</footer><!-- .entry-meta -->
-	<section>
-		<?php comments_template( '', true ); ?>
-	</section>
 </article><!-- #post-<?php the_ID(); ?> -->

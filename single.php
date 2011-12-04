@@ -6,8 +6,8 @@
 
 get_header(); ?>
 
-		<div id="primary" class="grid_12">
-			<div id="content" role="main">
+		<div id="primary">
+			<div id="content" role="main" class="grid_12">
 
 			<?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,6 +26,7 @@ get_header(); ?>
 				}
 				
 				?>
+				<?php comments_template( '', true ); ?>
 			<?php endwhile; // end of the loop. ?>
 
 			</div><!-- #content -->
