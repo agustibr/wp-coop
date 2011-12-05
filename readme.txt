@@ -9,3 +9,7 @@
  5. Activar wp-coop i els plugins.
  6. crear .htaccess i despres actualitzar enllaços permanents amb: /%year%/%postname%/
  7. Crear carpeta uploads amb 777
+
+ == Plugins Recomanats ==
+ 	- Valoracions, Wp-PostRatings ( @link: http://wordpress.org/extend/plugins/wp-postratings/ )
+	- Enquestes, Wp-Polls ( @link: http://wordpress.org/extend/plugins/wp-polls/ )

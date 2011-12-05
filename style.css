@@ -123,6 +123,7 @@ body {background: #f3f3f3;font-family:sans-serif;}
     left: 0;
     z-index: 99999;
     background-color:#3F636B;
+    padding: .2em 0;
 }
 #branding nav ul ul ul {
     left: 100%;
