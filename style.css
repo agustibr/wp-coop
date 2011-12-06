@@ -78,7 +78,7 @@ COLORS:
 
 
 html, body {min-height:100%;}
-body {background: #f3f3f3;font-family:sans-serif;}
+body {background: #F3F3F3 url(img/bg-body-hexagon.png) center bottom;font-family:sans-serif;}
 #site-title {font-family: 'Sniglet', cursive;margin-top: 50px;margin-bottom: 0;}
 #branding {background:url(img/header-bg.png);}
 #branding hgroup {background: transparent url(img/elrusc-header.png) no-repeat right top;}
@@ -86,10 +86,11 @@ body {background: #f3f3f3;font-family:sans-serif;}
 /* MENU */
 #branding nav {
     border-radius: 3px 3px 0 0 ;
-    background: #3F636B;
+    background: #F3F3F3 url(img/bg-body-hexagon.png) bottom center;
     display: block;
     padding-top: .3em;
     padding-bottom: .3em;
+    border-bottom: 1px solid #b2e1de;
 }
 #branding nav > div {float:left;}
 #branding nav ul {
@@ -107,8 +108,8 @@ body {background: #f3f3f3;font-family:sans-serif;}
     line-height: 2em;
     padding: 0 .5em;
     text-decoration: none;
-    background: #3F636B;
-    color: #DDF4FB;
+    background: transparent;
+    color: #3F636B;
     text-transform: uppercase;
     margin:0 2px;
 }
@@ -122,7 +123,7 @@ body {background: #f3f3f3;font-family:sans-serif;}
     top: 2em;
     left: 0;
     z-index: 99999;
-    background-color:#3F636B;
+    background-color: #f3f3f3;
     padding: .2em 0;
 }
 #branding nav ul ul ul {
@@ -153,7 +154,7 @@ body {background: #f3f3f3;font-family:sans-serif;}
 
 #branding nav .current-menu-parent > a,
 #branding nav .current-menu-item > a {font-weight:bold;}
-.breadcrumb {border-radius: 0 0 3px 3px;}
+.breadcrumb {border-radius: 0 0 3px 3px;border: 0px solid white;background: whitesmoke;border-top: 1px solidç;}
 
 /* MAIN */
 #content {padding: 0;}

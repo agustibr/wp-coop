@@ -100,8 +100,8 @@ foreach ( $comments as $comment )
 <?php if ( 'open' == $post->comment_status ) : ?>
     <div id="respond">
     <?php if ( get_option('comment_registration') && !$user_ID ) : ?>
-        <p id="login-req"><?php printf(__('Has d\'estar <a href="%s" title="Log in">loguejat</a> per escriure un comentari.', 'wp-coop'),
-                    get_option('siteurl') . '/wp-login.php?redirect_to=' . get_permalink() ) ?></p>
+        <p id="login-req"><?php _e('Has d\'estar loguejat</a> per escriure un comentari.', 'wp-coop')?></p>
+        <?php if ( function_exists( 'sidebarlogin' ) ) sidebarlogin(); ?>
 	<?php else : ?>
 		<div class="formcontainer">
 			<?php if ( $user_ID ) : ?>
