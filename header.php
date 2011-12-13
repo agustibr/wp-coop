@@ -81,8 +81,8 @@
 				// custom navigation for diferent roles
 				if ( is_user_logged_in() ) :
 					global $current_user;
-					$currUserRole = ($current_user->data->wp_capabilities);
-					$user_role = key($currUserRole);
+					$currUserRole = ( $current_user->roles);
+					$user_role = $currUserRole[0];
 					unset($currUserRole);
 					if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
 					if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );

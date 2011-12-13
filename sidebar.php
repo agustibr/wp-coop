@@ -36,8 +36,8 @@
 		<?php
 		if ( is_user_logged_in() ) {
 			global $current_user;
-			$currUserRole = ($current_user->data->wp_capabilities);
-			$role = key($currUserRole);
+			$currUserRole = ($current_user->roles);
+			$role = $currUserRole[0];
 			unset($currUserRole);
 			if($role=='administrator') $role='ruscaire';
 			if ( is_active_sidebar( 'sidebar-'. $role ) ) :
