@@ -11,7 +11,7 @@ define('EMPTY_TRASH_DAYS', 5 ); // Empty trash every 2 days
 /****** INCLUDES TEMPORALS PER MODIFICAR CONFIGURACIONS **/
 
 // incloure 1 cop per crear ROLS i PERMISOS
-include(CoopTheme_PATH.'/php/user_roles.php');
+include(CoopTheme_PATH.'/inc/user_roles.php');
 
 /**** END TEMPORALS ****/
 
@@ -20,19 +20,19 @@ include(CoopTheme_PATH.'/php/user_roles.php');
 /*** INCLUDES PERMANENTS ***/
 
 // camps dinfo per usuaris (UF, Coope desde, Menor d edat)
-include(CoopTheme_PATH.'/php/user_contactmethods.php');
+include(CoopTheme_PATH.'/inc/user_contactmethods.php');
 
 // S'encarrega de enviar 1 mail a la llista de mail quan hi ha un nou post
-include(CoopTheme_PATH.'/php/user_notification.php');
+include(CoopTheme_PATH.'/inc/user_notification.php');
 
 // inclou js pel tema
-include(CoopTheme_PATH.'/php/web_scripts.php');
+include(CoopTheme_PATH.'/inc/web_scripts.php');
 
 // inclou Custom Post types i Taxonomies
-include(CoopTheme_PATH.'/php/web_cpt.php');
+include(CoopTheme_PATH.'/inc/web_cpt.php');
 
 // inclou Funcions i Templates per als Comentaris
-include(CoopTheme_PATH.'/php/web_comments.php');
+include(CoopTheme_PATH.'/inc/web_comments.php');
 
 
 // inclou favicon
