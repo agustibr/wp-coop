@@ -64,10 +64,13 @@ function coop_front_page_template() {
 add_action( 'template_redirect', 'coop_front_page_template' );
 
 /**** END PERMANENTS ****/
+add_theme_support('post-thumbnails'); // http://codex.wordpress.org/Post_Thumbnails
+// set_post_thumbnail_size(150, 150, false);
 add_theme_support( 'breadcrumb-trail' );
 add_theme_support( 'loop-pagination' );
 add_theme_support( 'get_the_image' );
-add_theme_support( 'the_ratings' );
+//add_theme_support( 'the_ratings' );
+add_theme_support( 'sidebarlogin' );
 
 function extensions() {
 
@@ -83,6 +86,9 @@ function extensions() {
         
         if ( !function_exists( 'the_ratings' ) )
             require_if_theme_supports( 'the_ratings', CoopTheme_PATH . '/extensions/wp-postratings/wp-postratings.php' );
+
+        if ( !function_exists( 'sidebarlogin' ) )
+            require_if_theme_supports( 'sidebarlogin', CoopTheme_PATH . '/extensions/sidebar-login/sidebar-login.php' );
 
 }
 extensions();
@@ -146,4 +152,3 @@ function toolbox_content_nav( $nav_id ) {
     </nav><!-- #<?php echo $nav_id; ?> -->
     <?php
 }
-

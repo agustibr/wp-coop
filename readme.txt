@@ -1,3 +1,5 @@
+# wp-Coop WordPress Theme [https://github.com/AgustiBelloc/wp-coop/](https://github.com/AgustiBelloc/wp-coop)
+
 == Instalació ==
  1. instal.lar el Wordpress ( @link: http://ca.wordpress.org )
  2. instal.lar el tema pare Toolbox ( @link: http://wordpress.org/extend/themes/toolbox )
@@ -13,3 +15,17 @@
  == Plugins Recomanats ==
  	- Valoracions, Wp-PostRatings ( @link: http://wordpress.org/extend/plugins/wp-postratings/ )
 	- Enquestes, Wp-Polls ( @link: http://wordpress.org/extend/plugins/wp-polls/ )
+
+
+## License:
+Theme:
+
+* wp-Coop: [The Unlicense](http://unlicense.org)
+
+Major components:
+
+* Toolbox theme: GNU GENERAL PUBLIC LICENSE
+* 960 Grid System: MIT/GPL License
+* jQuery: MIT/GPL License
+* jQuery UI: MIT/GPL License
+* Bootstrap: Apache License

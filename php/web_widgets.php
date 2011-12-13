@@ -44,8 +44,8 @@ function coop_setup() {
 	
 	//per cada Rol creo un sidebar
 	global $wp_roles;
-	
-	foreach ( $wp_roles->role_names as $role => $name ) :
+	$roles = $wp_roles->role_names;
+	foreach ( $roles as $role => $name ) :
 		if($role!='administrator'):
 			register_sidebar( array(
 				'name' => __( 'Sidebar ' . $name , 'wp-coop' ),
@@ -68,6 +68,5 @@ function coop_setup() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
-
 }
 add_action( 'after_setup_theme', 'coop_setup' );
