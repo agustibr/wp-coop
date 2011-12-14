@@ -43,7 +43,7 @@ add_action('wp_head', 'favicon_link');
 
 
 // inclou Coop Widgets
-include(CoopTheme_PATH.'/php/web_widgets.php');
+include(CoopTheme_PATH.'/inc/web_widgets.php');
 
 
 /**
@@ -77,13 +77,13 @@ function extensions() {
         /* Load the Breadcrumb Trail extension if supported and the plugin isn't active. */
         if ( !function_exists( 'breadcrumb_trail' ) )
             require_if_theme_supports( 'breadcrumb-trail', CoopTheme_PATH . '/extensions/breadcrumb-trail/breadcrumb-trail.php' );
-        
+
         if ( !function_exists( 'loop-pagination' ) )
             require_if_theme_supports( 'loop-pagination', CoopTheme_PATH . '/extensions/loop-pagination.php' );
-        
+
         if ( !function_exists( 'get_the_image' ) )
             require_if_theme_supports( 'get_the_image', CoopTheme_PATH . '/extensions/get-the-image.php' );
-        
+
         if ( !function_exists( 'the_ratings' ) )
             require_if_theme_supports( 'the_ratings', CoopTheme_PATH . '/extensions/wp-postratings/wp-postratings.php' );
 
@@ -130,7 +130,7 @@ function custom_password_form() {
                     <input type="submit" name="Submit" value="' . esc_attr__( "Submit" ) . '" class="btn primary"/>
                 </div>
             </div>
-        </fieldset> 
+        </fieldset>
     </form>
     ';
     return $output;
@@ -161,7 +161,7 @@ function toolbox_content_nav( $nav_id ) {
         <h1 class="assistive-text section-heading"><?php _e( 'Post navigation', 'wp-coop' ); ?></h1>
 
     <?php if ( is_single() ) : // navigation links for single posts ?>
-        
+
         <div class="pagination"><ul>
         <?php previous_post_link( '<li class="prev">%link</li>', '' . _x( '&larr;', 'Previous post link', 'toolbox' ) . ' %title' ); ?>
         <?php next_post_link( '<li class="next">%link</li>', '%title ' . _x( '&rarr;', 'Next post link', 'toolbox' ) . '' ); ?>
