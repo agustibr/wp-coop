@@ -29,6 +29,7 @@
 			<span class="sep"> | </span>
 			<?php printf( __( 'Theme: %1$s by %2$s.', 'wp-coop' ), 'wp-Coop', '<a href="http://agusti.cat/" rel="designer">Agusti</a>' ); ?>
 		</div>
+		<div class="clear"></div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
