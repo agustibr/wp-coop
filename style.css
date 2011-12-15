@@ -1,7 +1,7 @@
 /*
 Theme Name:     wp Coop - localhost
 Theme URI:      http: //agusti.cat/
-Description:    Tema per a el Rusc. 
+Description:    Tema per a el Rusc.
 Author:         Agustí Belloc
 Author URI:     http: //agusti.cat/
 Template:       toolbox
@@ -138,7 +138,7 @@ body {background: #F3F3F3 url(img/bg-body-hexagon.png) center bottom;font-family
     height: auto;
     white-space:nowrap;
     text-transform:none;
-    
+
 }
 #branding nav li:hover > a,
 #branding nav ul ul :hover > a {
@@ -213,18 +213,12 @@ section#comments {padding:20px;margin:20px auto; background:#fff; border-radius:
 #commentform #cancel-comment-reply {float:right;}
 
 /* PROTECTED ICON */
-header span.icon-lock{ display:inline-block; background:transparent url(img/icon-lock.png) no-repeat center center; 
-    width:16px;height:1em;vertical-align:middle;
+header span.icon-lock{ display:inline-block; background:transparent url(img/icon-lock.png) no-repeat center center; width:16px;height:1em;vertical-align:middle;
 }
 /* Search form */
 #searchform {margin:0;}
 #searchform fieldset {padding:0; margin:0;}
- #searchform input {float: left;}
+#searchform input {float: left;}
 #searchform #searchsubmit {position:relative;float: right;font-size:9px;}
-#searchform #searchsubmit span {
-    position: absolute;
-    display:block;
-    text-indent:-999px;
-    overflow:hidden; background:transparent url(img/icon-search.png) no-repeat center center;
-    top:0;bottom:0;right:0;left:0;
+#searchform #searchsubmit span {position: absolute; display:block; text-indent:-999px; overflow:hidden; background:transparent url(img/icon-search.png) no-repeat center center;top:0;bottom:0;right:0;left:0;
 }
