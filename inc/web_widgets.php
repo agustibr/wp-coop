@@ -18,7 +18,7 @@ function remove_toolbox_setup(){
 	//unregister_sidebar( 'sidebar-1' );
 	unregister_sidebar( 'sidebar-2' );
 	remove_theme_support( 'post-formats');
-	remove_theme_support( 'automatic-feed-links'); 
+	remove_theme_support( 'automatic-feed-links');
 }
 add_action( 'init', 'remove_toolbox_setup', 11);
 
@@ -41,24 +41,26 @@ function coop_setup() {
 		'before_title' => '<h1 class="widget-title">',
 		'after_title' => '</h1>',
 	) );
-	
+
 	//per cada Rol creo un sidebar
-	global $wp_roles;
-	$roles = $wp_roles->role_names;
-	foreach ( $roles as $role => $name ) :
-		if($role!='administrator'):
-			register_sidebar( array(
-				'name' => __( 'Sidebar ' . $name , 'wp-coop' ),
-				'id' => 'sidebar-'  . $role,
-				'description' => __( 'Lateral pel rol ' . $name, 'wp-coop' ),
-				'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-				'after_widget' => "</aside>",
-				'before_title' => '<h1 class="widget-title">',
-				'after_title' => '</h1>',
-			) );
-		endif;
-	endforeach;
-	
+	if ( is_user_logged_in() ) :
+		global $wp_roles;
+		$roles = $wp_roles->role_names;
+		foreach ( $roles as $role => $name ) :
+			if($role!='administrator'):
+				register_sidebar( array(
+					'name' => __( 'Sidebar ' . $name , 'wp-coop' ),
+					'id' => 'sidebar-'  . $role,
+					'description' => __( 'Lateral pel rol ' . $name, 'wp-coop' ),
+					'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+					'after_widget' => "</aside>",
+					'before_title' => '<h1 class="widget-title">',
+					'after_title' => '</h1>',
+				) );
+			endif;
+		endforeach;
+	endif;
+
 	register_sidebar( array(
 		'name' => __( 'Sidebar No Logejats', 'wp-coop' ),
 		'id' => 'sidebar-no_logged',
