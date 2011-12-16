@@ -231,8 +231,12 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 										<label for="uf"><?php _e('Unitat Familiar', 'wp-coop'); ?></label>
 										<div class="input">
 										<?php
-											for($i=1; $i<=35; $i++)
-	        									$ufs[]=$i;
+
+	        									for($i=1; $i<=35; $i++) {
+												/* del 1 al 9 injectem un 0 */
+												if($i<10) $i= '0'.$i;
+												$ufs[]=$i;
+											}
 
 											echo '<select name="uf">';
 												echo '<option value="">' . __("Selecciona U.F.", 'wp-coop' ) . '</option>';
