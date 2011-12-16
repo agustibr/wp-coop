@@ -243,7 +243,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 												foreach($ufs as $uf){
 													if ($error && $uf==$_POST['uf']) $selected = 'selected="selected"';
 													else $selected = '';
-													echo '<option value="' . $uf . '" ' . $selected . '>' . $uf . '</option>';
+													echo '<option value="' . $uf . '" ' . $selected . '>U.F. ' . $uf . '</option>';
 												}
 											echo '</select>';
 										?>
