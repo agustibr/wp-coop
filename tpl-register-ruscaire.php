@@ -212,7 +212,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 										<label for="coope_desde"><?php _e('A la coope desde ...', 'wp-coop'); ?></label>
 										<div class="input">
 										<?php
-											for($i=2009; $i<=2012; $i++)
+											for($i=2009; $i<=date('Y'); $i++)
 												$years[]=$i;
 
 											echo '<select name="coope_desde">';
