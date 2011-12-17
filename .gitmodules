@@ -1,3 +1,0 @@
-[submodule "extensions/sidebar-login"]
-	path = extensions/sidebar-login
-	url = git://github.com/mikejolley/sidebar-login.git
