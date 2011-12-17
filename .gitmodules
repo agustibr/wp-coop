@@ -1,0 +1,3 @@
+[submodule "extensions/sidebar-login"]
+	path = extensions/sidebar-login
+	url = git@github.com:AgustiBelloc/sidebar-login.git
