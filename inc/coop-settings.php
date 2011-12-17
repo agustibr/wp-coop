@@ -4,7 +4,8 @@ Theme settings
 **/
 // Define paths
 define('CoopTheme_URL', get_theme_root_uri() . '/wp-coop');
-define('EXTENSION_DIR', CoopTheme_PATH . '/extensions');
+define('EXTENSIONS_DIR', CoopTheme_PATH . '/extensions');
+define('EXTENSIONS_URL', CoopTheme_URL . '/extensions');
 
 //
 define('WP_POST_REVISIONS', 5); // 2 post revisions
