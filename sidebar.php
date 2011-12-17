@@ -8,6 +8,13 @@
  */
 ?>
 	<div id="secondary" class="widget-area grid_4" role="complementary">
+		<?php
+		if ( function_exists( 'sidebarlogin' ) ) :
+			echo '<aside class="widget">';
+			sidebarlogin();
+			echo '</aside>';
+		endif; ?>
+
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
 			<aside id="search" class="widget widget_search">
