@@ -84,8 +84,8 @@
 					$currUserRole = ( $current_user->roles);
 					$user_role = $currUserRole[0];
 					unset($currUserRole);
-					if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire' ) );
-					if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' ) );
+					if ($user_role == 'administrator' || $user_role == 'ruscaire') wp_nav_menu( array( 'theme_location' => 'ruscaire', 'fallback_cb'=>false ) );
+					if ($user_role == 'administrator' || $user_role == 'ruscaire' || $user_role == 'proveidor-arc_natura') wp_nav_menu( array( 'theme_location' => 'proveidor_arc' , 'fallback_cb'=>false) );
 				endif;
 				?>
 				<div class="clear"></div>
