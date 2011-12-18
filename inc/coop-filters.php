@@ -41,3 +41,53 @@ function custom_password_form() {
     ';
     return $output;
 }
+
+/**
+Funcio que dona capabilitats dinamicament segons si ets autor
+i tens la capabilitat plural.
+Si tens : 'edit_pages'  => true i ets l'autor
+i ets   : post_author asigna 'edit_page' => true
+**/
+add_filter( 'map_meta_cap', 'coop_map_meta_cap', 10, 4 );
+
+function coop_map_meta_cap( $caps, $cap, $user_id, $args ) {
+    $the_post_type = get_post_type( $args[0] );
+    /* If editing, deleting, or reading a custom post type, get the post and post type object. */
+    if ( 'edit_'.$the_post_type == $cap || 'delete_'.$the_post_type == $cap || 'read_'.$the_post_type == $cap ) {
+        $post = get_post( $args[0] );
+        $post_type = get_post_type_object( $post->post_type );
+
+        /* Set an empty array for the caps. */
+        $caps = array();
+    }
+
+    /* If editing a custom post type, assign the required capability. */
+    if ( 'edit_'.$the_post_type == $cap ) {
+        if ( $user_id == $post->post_author )
+            $caps[] = $post_type->cap->edit_posts;
+        else
+            $caps[] = $post_type->cap->edit_others_posts;
+    }
+
+    /* If deleting a custom post type, assign the required capability. */
+    elseif ( 'delete_'.$the_post_type == $cap ) {
+        if ( $user_id == $post->post_author )
+            $caps[] = $post_type->cap->delete_posts;
+        else
+            $caps[] = $post_type->cap->delete_others_posts;
+    }
+
+    /* If reading a private custom post type, assign the required capability. */
+    elseif ( 'read_'.$the_post_type == $cap ) {
+
+        if ( 'private' != $post->post_status )
+            $caps[] = 'read';
+        elseif ( $user_id == $post->post_author )
+            $caps[] = 'read';
+        else
+            $caps[] = $post_type->cap->read_private_posts;
+    }
+
+    /* Return the capabilities required by the user. */
+    return $caps;
+}

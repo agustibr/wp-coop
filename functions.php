@@ -1,34 +1,30 @@
 <?php
 /** wp-coop Functions.php **/
 define('CoopTheme_PATH', dirname(__FILE__));
-/****** INCLUDES  **/
 
-// Configuracio i Definicio de variables globals del Wp
-include(CoopTheme_PATH.'/inc/coop-settings.php');
-
-// incloure 1 cop per crear ROLS i PERMISOS
-include(CoopTheme_PATH.'/inc/coop-roles.php');
+require_once locate_template('inc/coop-settings.php'); // Configuracio i Definicio de variables globals del Wp
+require_once locate_template('inc/coop-activation.php');  // activation
 
 // camps dinfo per usuaris (UF, Coope desde, Menor d edat)
-include(CoopTheme_PATH.'/inc/coop-userinfo.php');
+require_once locate_template('inc/coop-userinfo.php');
 
 // S'encarrega de enviar 1 mail a la llista de mail quan hi ha un nou post
-include(CoopTheme_PATH.'/inc/coop-notifications.php');
+require_once locate_template('inc/coop-notifications.php');
 
 // inclou accions (js, css, favicon)
-include(CoopTheme_PATH.'/inc/coop-actions.php');
+require_once locate_template('inc/coop-actions.php');
 
 // inclou filtres (protected form)
-include(CoopTheme_PATH.'/inc/coop-filters.php');
+require_once locate_template('inc/coop-filters.php');
 
 // inclou Custom Post types i Taxonomies
-include(CoopTheme_PATH.'/inc/coop-cpt.php');
+require_once locate_template('inc/coop-cpt.php');
 
 // inclou Funcions i Templates per als Comentaris
-include(CoopTheme_PATH.'/inc/coop-comments.php');
+require_once locate_template('inc/coop-comments.php');
 
 // inclou Coop Widgets
-include(CoopTheme_PATH.'/inc/coop-widgets.php');
+require_once locate_template('inc/coop-widgets.php');
 
 
 /**** END INCLUDES ****/

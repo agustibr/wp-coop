@@ -5,6 +5,18 @@ function favicon_link() {
 }
 add_action('wp_head', 'favicon_link');
 
+/**
+Change URL Slug from Author to Cens
+abans       =>  domini.cat/author
+despres     =>  domini.cat/cens
+**/
+function new_author_base() {
+    global $wp_rewrite;
+    $author_slug = 'cens';
+    $wp_rewrite->author_base = $author_slug;
+}
+add_action('init', 'new_author_base');
+
 //add js
 function my_scripts_method_1() {
     //wp_deregister_script( 'jquery' );
