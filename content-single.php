@@ -13,7 +13,7 @@
 			<?php toolbox_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
-
+	<hr/>
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'toolbox' ), 'after' => '</div>' ) ); ?>
@@ -21,6 +21,8 @@
 
 	<footer class="entry-meta">
 		<?php
+			if(get_post_type() == 'recepta' ) echo '<div>'.get_the_term_list( get_the_ID(), 'rebost', 'Ingredients: <ul class="pills"><li>', '</li><li>', '</li></ul>' ).'</div>';
+
 			/* translators: used between list items, there is a space after the comma */
 			$category_list = get_the_category_list( __( ', ', 'toolbox' ) );
 
@@ -54,10 +56,8 @@
 			);
 		?>
 
-		<?php 
-		echo '<div>'.get_the_term_list( get_the_ID(), 'rebost', 'Ingredients: <ul class="pills"><li>', '</li><li>', '</li></ul>' ).'</div>';
+		<?php
 		//edit_post_link( __( 'Edit', 'toolbox' ), '<span class="edit-link">', '</span>' ); ?>
-		
-		<?php toolbox_content_nav( 'nav-below' ); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
+<?php toolbox_content_nav( 'nav-below' ); ?>
