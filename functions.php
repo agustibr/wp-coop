@@ -70,6 +70,13 @@ function coop_btn_publish_new( $post_type ) {
     if( current_user_can( $cap_publish ) ) echo '<a href="'.get_bloginfo('url').'/wp-admin/post-new.php?post_type='.$post_type.'" class="btn small success">+ '.__('Afegir', 'wp-coop').' '.$lbl_singular.'</a>';
 }
 
+function coop_btn_edit( $post_type ) {
+    $post_type_obj = get_post_type_object( $post_type );
+    $cap_edit = $post_type_obj->cap->edit_posts;
+    $lbl_singular = $post_type_obj->labels->singular_name;
+    if( current_user_can( $cap_edit ) ) edit_post_link( __('Edit').' '.$lbl_singular , '<span class="btn small">', '</span>');//echo '<a href="'.get_bloginfo('url').'/wp-admin/post-new.php?post_type='.$post_type.'" class="btn small success">+ '.__('Afegir', 'wp-coop').' '.$lbl_singular.'</a>';
+}
+
 function coop_user_can_read ( $post_type ) {
     switch ($post_type) {
         case 'post':
@@ -84,7 +91,6 @@ function coop_user_can_read ( $post_type ) {
             break;
     }
 }
-
 
 function print_roles (){
     global $wp_post_types, $wp_roles;

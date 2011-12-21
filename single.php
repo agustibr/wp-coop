@@ -15,6 +15,8 @@ get_header(); ?>
 				if( coop_user_can_read( get_post_type() ) || get_post_type()== 'post' ) :
 					get_template_part( 'content', 'single' );
 					coop_content_nav( 'nav-below' );
+					coop_btn_edit( get_post_type() );
+					echo ' ';
 					coop_btn_publish_new( get_post_type() );
 					comments_template( '', true );
 				else :
