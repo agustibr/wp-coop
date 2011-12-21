@@ -1,7 +1,7 @@
 <?php
 
 add_action('init', 'codex_custom_init');
-function codex_custom_init() 
+function codex_custom_init()
 {
   $labels_recepta = array(
     'name' => _x('Receptes', 'post type general name'),
@@ -14,7 +14,7 @@ function codex_custom_init()
     'view_item' => __('Veure Recepta'),
     'search_items' => __('Cercar Receptes'),
     'not_found' =>  __('No s\'han trobat Receptes '),
-    'not_found_in_trash' => __('No hi ha Receptes a la paperera'), 
+    'not_found_in_trash' => __('No hi ha Receptes a la paperera'),
     'parent_item_colon' => '',
     'menu_name' => 'Receptes'
 
@@ -23,8 +23,8 @@ function codex_custom_init()
     'labels' => $labels_recepta,
     'public' => true,
     'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
+    'show_ui' => true,
+    'show_in_menu' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'receptes' ),
     'capability_type' => array('recepta','receptes'),
@@ -35,14 +35,14 @@ function codex_custom_init()
 		'delete_posts'        => 'delete_receptes',
 		'delete_others_posts' => 'delete_others_receptes',
 		'read_private_posts'  => 'read_private_receptes',
-
+        'read_posts'        => 'read_receptes',
 	),
-    'has_archive' => true, 
+    'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => 4,
     'menu_icon'       =>  'http://elrusc.org/wp-content/icons/recepta_16.png',
     'supports' => array('title','editor','author','comments','thumbnail')
-  ); 
+  );
   register_post_type('recepta',$args_recepta);
   //add_post_type_support('','thumbnail');
   $labels_cistella = array(
@@ -56,7 +56,7 @@ function codex_custom_init()
     'view_item' => __('Veure Cistella'),
     'search_items' => __('Cercar Cistelles'),
     'not_found' =>  __('No s\'han trobat Cistelles '),
-    'not_found_in_trash' => __('No hi ha Cistelles a la paperera'), 
+    'not_found_in_trash' => __('No hi ha Cistelles a la paperera'),
     'parent_item_colon' => '',
     'menu_name' => 'Cistelles'
 
@@ -65,8 +65,8 @@ function codex_custom_init()
     'labels' => $labels_cistella,
     'public' => true,
     'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
+    'show_ui' => true,
+    'show_in_menu' => true,
     'query_var' => true,
     'rewrite' => array( 'slug' => 'cistelles' ),
     'capability_type' => array( 'cistella','cistelles'),
@@ -78,17 +78,18 @@ function codex_custom_init()
 		'delete_others_posts' => 'delete_others_cistelles',
 		'read'                => 'read_cistelles',
 		'read_private_posts'  => 'read_private_cistelles',
+        'read_posts'        => 'read_cistelles',
 	),
-    'has_archive' => true, 
+    'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => 4,
     'menu_icon'       =>  'http://elrusc.org/wp-content/icons/document_16.png',
     'supports' => array('title','editor','author','comments')
-  ); 
+  );
   register_post_type('cistella',$args_cistella);
 }
 
-//add filter to ensure the text Recepta, or recepta, is displayed when user updates a recepta 
+//add filter to ensure the text Recepta, or recepta, is displayed when user updates a recepta
 add_filter('post_updated_messages', 'codex_cpt_updated_messages');
 function codex_cpt_updated_messages( $messages ) {
   global $post, $post_ID;
@@ -139,7 +140,7 @@ function get_recepta_rebost(){
  // $ingredients_rebost = get_terms('rebost', array('hide_empty' => false));
 }
 //create  taxonomies, for the post type "recepta"
-function create_recepta_taxonomies() 
+function create_recepta_taxonomies()
 {
   // Add new taxonomy
   $labels = array(
@@ -149,12 +150,12 @@ function create_recepta_taxonomies()
     'all_items' => __( 'Rebost' ),
     'parent_item' => null,
     'parent_item_colon' => null,
-    'edit_item' => __( 'Editar Ingredient' ), 
+    'edit_item' => __( 'Editar Ingredient' ),
     'update_item' => __( 'Actualitzar Ingredient' ),
     'add_new_item' => __( 'Afegir Ingredient' ),
     'new_item_name' => __( 'Nom de l\'ingredient' ),
     'menu_name' => __( 'Rebost' ),
-  ); 	
+  );
 
   register_taxonomy('rebost',array('recepta'), array(
     'hierarchical' => false,

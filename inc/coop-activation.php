@@ -84,7 +84,7 @@ if (is_admin() && $pagenow  === 'themes.php' && isset( $_GET['activated'])) {
     'edit_published_receptes' => true,
 
     'edit_files' => true,
-    'import' => false,
+    //'import' => false,
     'upload_files' => true,
   ));
 
@@ -92,6 +92,7 @@ if (is_admin() && $pagenow  === 'themes.php' && isset( $_GET['activated'])) {
 
     'read' => true,
 
+    'read_receptes' => true,
     'publish_receptes' => true,
     'edit_receptes' => true,
 

@@ -12,7 +12,7 @@
  * @subpackage wp-Coop
  * @since Toolbox 0.1
  */
-
+http://localhost/wordpress/wp-admin/post-new.php?post_type=recepta
 get_header(); ?>
 
 		<div id="primary">
@@ -21,7 +21,10 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 
 				<header class="page-header">
-					<h1 class="page-title actualitat"><?php echo __( 'Actualitat', 'wp-coop' ); ?></h1>
+					<h1 class="page-title actualitat">
+						<?php echo __( 'Actualitat', 'wp-coop' ); ?>
+						<?php coop_btn_publish_new( get_post_type() );?>
+					</h1>
 				</header>
 
 				<?php /* Start the Loop */ ?>

@@ -24,7 +24,7 @@ get_header(); ?>
 						if ( is_post_type_archive( array('cistella','recepta') ) ) {
 					    	post_type_archive_title();
 						} else {
-							
+
 							if( is_tax() ) {
 								$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
 								printf( __( 'Receptes amb: %s', 'wp-coop' ), '<span>' . $term->name . '</span>' );
@@ -39,11 +39,13 @@ get_header(); ?>
 								printf( __( 'Arxiu de l\'Any: %s', 'wp-coop' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
 							}
 							else {
-								_e( 'Arxiu', 'wp-coop' );	
+								_e( 'Arxiu', 'wp-coop' );
 							}
-							
+
 						}
+						coop_btn_publish_new( get_post_type() );
 						?>
+
 					</h1>
 				</header>
 
@@ -66,11 +68,11 @@ get_header(); ?>
 						if ($post_type == 'cistella') {
 							$can_read_cpt="read_{$post_type_slug}";
 							if ( current_user_can( $can_read_cpt ) )  get_template_part( 'content', get_post_format() );
-							else get_template_part( 'content', 'nopermission' ); 
+							else get_template_part( 'content', 'nopermission' );
 						} else {
 							get_template_part( 'content', get_post_format() );
 						}
-						
+
 					?>
 
 				<?php endwhile; ?>

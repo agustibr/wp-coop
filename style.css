@@ -169,12 +169,14 @@ article img {max-width:100%;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 .post .entry-title {color:#115900;}
 
+.post-type-archive-recepta .page-title {color:#472300;}
 .recepta {border:1px solid #D3975D;}
 .recepta.sticky {border:5px solid #D3975D;}
 .recepta a {color:#472300;font-weight:normal;text-decoration:none;}
 .recepta .entry-title {color:#472300;}
 .hentry.recepta {padding:20px;margin:10px auto;}
 
+.post-type-archive-cistella .page-title {color:#3B0466;}
 .cistella {border:1px solid #D7BCED;}
 .cistella.sticky {border:5px solid #D7BCED;}
 .cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
@@ -231,3 +233,6 @@ header span.icon-lock{ display:inline-block; background:transparent url(img/icon
 #searchform #searchsubmit {position:relative;float: right;font-size:9px;}
 #searchform #searchsubmit span {position: absolute; display:block; text-indent:-999px; overflow:hidden; background:transparent url(img/icon-search.png) no-repeat center center;top:0;bottom:0;right:0;left:0;
 }
+
+/**/
+.page-title .btn {float:right}
