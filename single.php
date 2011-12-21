@@ -12,21 +12,21 @@ get_header(); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php// toolbox_content_nav( 'nav-above' ); ?>
-				
-				<?php 
+
+				<?php
 				$post_type = get_post_type( get_the_ID() );
 				$post_type_obj = get_post_type_object( $post_type );
 				$post_type_slug = $post_type_obj->rewrite['slug'];
 				if ($post_type == 'cistella') {
 					$can_read_cpt="read_{$post_type_slug}";
 					if ( current_user_can( $can_read_cpt ) )  get_template_part( 'content', 'single' );
-					else get_template_part( 'content', 'nopermission' ); 
+					else get_template_part( 'content', 'nopermission' );
 				} else {
 					get_template_part( 'content', 'single' );
 				}
-				
+
 				?>
-				<?php comments_template( '', true ); ?>
+				<?php if ( current_user_can( $can_read_cpt ) ) comments_template( '', true ); ?>
 			<?php endwhile; // end of the loop. ?>
 
 			</div><!-- #content -->
