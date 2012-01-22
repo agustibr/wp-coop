@@ -59,7 +59,46 @@ function coop_content_nav( $nav_id ) {
 
     <?php endif; ?>
 
-    </nav><!-- #<?php echo $nav_id; ?> -->
+    </nav><!-- #$nav_id; ?> -->
+    <?php
+}
+
+function coop_pages_nav(){
+    echo 'coop_pages_nav';
+    $args = array(
+        'orderby' => 'menu_order',
+        //'sort_column' => 'menu_order',
+
+    );
+    $pagelist = get_pages($args);
+    //pre($pagelist);
+    $pages = array();
+    foreach ($pagelist as $page) {
+        $pages[] += $page->ID;
+    }
+    $current = array_search(get_the_ID(), $pages);
+    $prevID = $pages[$current-1];
+    $nextID = $pages[$current+1];
+    ?>
+    <div class="pagination"><ul>
+    <?php
+    if (!empty($prevID)) : ?>
+        <li class="prev">
+            <a href="<?php echo get_permalink($prevID); ?>" title="Previous">
+                &larr; <?php echo get_the_title($prevID); ?>
+            </a>
+        </li>
+    <?php
+    endif;
+    if (!empty($nextID)) : ?>
+        <li class="next">
+            <a href="<?php echo get_permalink($nextID); ?>" title="Next">
+                <?php echo get_the_title($nextID); ?> &rarr;
+            </a>
+        </li>
+    <?php
+    endif; ?>
+    </ul></div><!-- .navigation -->
     <?php
 }
 
