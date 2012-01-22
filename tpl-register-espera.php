@@ -75,11 +75,17 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<div class="entry-content">
-						<?php the_content(); ?>
 						<?php  if ( !post_password_required() ) : ?>
+
+							<?php while ( have_posts() ) : the_post(); ?>
+								<?php the_content(); ?>
+							<?php endwhile; // end of the loop. ?>
+
 						<!-- REGISTER FORM STARTS HERE -->
 
 						 <?php if ( is_user_logged_in() && !current_user_can( 'create_users' ) ) : ?>
+
+
 
 							<div class="alert-message block-message warning">
 							<?php printf( __('Estas logejat com a <a href="%1$s" title="%2$s">%2$s</a>.  No necessites un altre usuari.', 'wp-coop'), get_author_posts_url( $curauth->ID ), $user_identity ); ?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php _e('Sortir d\'aquesta sessió', 'wp-coop'); ?>"><?php _e('Sortir &raquo;', 'wp-coop'); ?></a>
