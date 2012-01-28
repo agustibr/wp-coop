@@ -64,7 +64,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 }
 
    get_header(); ?>
-
+   <?php get_sidebar('page'); ?>
 		<div id="primary" class="grid_12">
 			<div id="content" role="main">
 
@@ -231,11 +231,10 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 
 						<!-- REGISTER FORM ENDS HERE -->
 						<?php endif; //if ( !post_password_required() ) ?>
-
 					</div><!-- .entry-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->
+				<?php coop_pages_nav(); ?>
 			</div><!-- #content -->
 		</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>

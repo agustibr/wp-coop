@@ -165,21 +165,51 @@ body {background: #F3F3F3 url(img/bg-body-hexagon.png) center bottom;font-family
 .home #main {padding-top: 20px;}
 article {padding:20px;margin:0 auto; background:#fff; border-radius:5px; border: 1px solid #DDD;}
 article img {max-width:100%;}
+/* SECONDARY */
+aside {padding:1em;margin-bottom:1em;background: #3F636B;border-radius:5px;color:#CCC;}
+aside h1 {font-size: 1em; font-weight: bold; padding: 0; margin: 0; line-height: 1.5em; color: #DDF4FB;}
+aside a  {color:#99C47C; display:block; padding:.2em .3em;margin-bottom:.1em;}
+aside a:hover {color:#3F636B;background:#99C47C;text-decoration:none;}
+aside ul, aside li {list-style-type:none; margin-left:0;}
+aside ul ul li a {padding-left: 1.3em;}
+aside.widget_rebost a {display: inline;padding: 0;}
+aside.widget_rebost_x_ingredients ul a {font-weight:bold;}
+aside.widget_rebost_x_ingredients ul ul a {font-weight:normal;}
+aside.widget_pages li.current_page_item>a {color:#FFF;}
+.home article {background:#DFFBE5;}
+.home article a {color:#325B3A;}
 
+/*CPT*/
+.page-title.actualitat {color:#115900;}
 .post {background:#fff;border:1px solid #9BD28E; margin-bottom: 20px;  }
 .post.sticky {border:5px solid #9BD28E;}
 .post a:hover {text-decoration:underline;color:#090;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 .post .entry-title {color:#115900;}
 
+.post-type-archive-recepta aside a,
+.single-recepta aside a,
+.page-template-tpl-rebost-php aside a {color:#D3975D;}
+.post-type-archive-recepta aside a:hover,
+.single-recepta aside a:hover,
+.page-template-tpl-rebost-php aside a:hover {background-color:#D3975D;color:#472300;}
 .post-type-archive-recepta .page-title {color:#472300;}
+.post-type-archive-recepta aside,
+.single-recepta aside,
+.page-template-tpl-rebost-php aside {background-color: #472300;}
 .recepta {border:1px solid #D3975D;}
 .recepta.sticky {border:5px solid #D3975D;}
 .recepta a {color:#472300;font-weight:normal;text-decoration:none;}
 .recepta .entry-title {color:#472300;}
 .hentry.recepta {padding:20px;margin:10px auto;}
 
+.post-type-archive-cistella aside a,
+.single-cistella aside a {color:#D7BCED;}
+.post-type-archive-cistella aside a:hover,
+.single-cistella aside a:hover {background-color:#D7BCED;color:#3B0466;}
 .post-type-archive-cistella .page-title {color:#3B0466;}
+.post-type-archive-cistella aside,
+.single-cistella aside {background-color:#3B0466;}
 .cistella {border:1px solid #D7BCED;}
 .cistella.sticky {border:5px solid #D7BCED;}
 .cistella a {color:#3B0466;font-weight:normal;text-decoration:none;}
@@ -196,17 +226,7 @@ header .entry-meta {margin-top: -16px;margin-bottom: -16px; text-align: right;}
 
 .recepta footer .pills a {background-color:#D3975D; text-shadow: 0 1px 1px rgba(0, 0, 0, 0.25); color:#FFF; }
 .recepta footer .pills a:hover {background-color:#472300;}
-/* SECONDARY */
-aside {padding:1em;margin-bottom:1em;background: #3F636B;border-radius:5px;}
-aside h1 {font-size: 1em; font-weight: bold; padding: 0; margin: 0; line-height: 1.5em; color: #DDF4FB;}
-aside a  {color:#99C47C; display:block; padding:.2em .3em;margin-bottom:.1em;}
-aside a:hover {color:#3F636B;background:#99C47C;text-decoration:none;}
-aside ul, aside li {list-style-type:none; margin-left:0;}
 
-.home article {background:#DFFBE5;}
-.home article a {color:#325B3A;}
-
-.page-title.actualitat {color:#115900;}
 
 /* COMMENTS */
 section#comments {padding:20px;margin:20px auto; background:#fff; border-radius:5px; border: 1px solid #DDD;}

@@ -122,8 +122,11 @@ if (is_admin() && $pagenow  === 'themes.php' && isset( $_GET['activated'])) {
   $edit_role = get_role('administrator');
   $edit_role->add_cap('publish_receptes');
   $edit_role->add_cap('edit_receptes');
+  $edit_role->add_cap('edit_others_receptes');
+  $edit_role->add_cap('read_cistelles');
   $edit_role->add_cap('publish_cistelles');
   $edit_role->add_cap('edit_cistelles');
+  $edit_role->add_cap('edit_others_cistelles');
 
   /// To remove one outright or remove one of the defaults:
   remove_role('editor');

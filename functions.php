@@ -64,10 +64,10 @@ function coop_content_nav( $nav_id ) {
 }
 
 function coop_pages_nav(){
-    echo 'coop_pages_nav';
     $args = array(
-        'orderby' => 'menu_order',
-        //'sort_column' => 'menu_order',
+        //title_li=&child_of=$parent&sort_column=menu_order
+        //'orderby' => 'menu_order',
+        'sort_column' => 'menu_order',
 
     );
     $pagelist = get_pages($args);
@@ -120,6 +120,7 @@ function coop_user_can_read ( $post_type ) {
     switch ($post_type) {
         case 'post':
         case 'recepta':
+        case 'page':
             return true;
             break;
 

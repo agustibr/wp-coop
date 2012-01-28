@@ -1,13 +1,13 @@
 <?php
 /**
  * Template Name: Cens Usuaris
- * 
+ *
  * @subpackage wp-Coop
- * 
+ *
  */
 
 get_header(); ?>
-	<div id="primary" class="">
+	<div id="primary" class="grid_16">
 		<div id="contento" role="main">
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
@@ -65,14 +65,14 @@ get_header(); ?>
 									if( ($role!='espera') && ($role!='proveidor-arc_natura') ) echo '<td>'.get_the_author_meta('es_menor', $user->ID).'</td>';
 									if($role!='espera') echo '<td>'.get_the_author_meta('claus_local', $user->ID).'</td>';
 									if($role=='espera') echo '<td>'.$user->user_registered.'</td>';
-		                    		//if(get_the_author_meta('description', $user->ID)) echo '<td>'.get_the_author_meta('description', $user->ID).'</td>'; 
+		                    		//if(get_the_author_meta('description', $user->ID)) echo '<td>'.get_the_author_meta('description', $user->ID).'</td>';
 		                    		//echo '<li><a href="'.get_bloginfo('url').'/cens/' . $user->user_nicename .'">aaa</a></li>';
 		                    		echo '</tr>';
 	                			} ?>
 								</tbody>
 							</table>
 							</div><!-- /role -->
-						<?php 
+						<?php
 						endif;
 					endforeach; ?>
 					</div> <!-- /#tabs -->

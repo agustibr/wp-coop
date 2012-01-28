@@ -97,5 +97,5 @@ get_header(); ?>
 			</div><!-- #content -->
 		</section><!-- #primary -->
 
-<?php get_sidebar(); ?>
+<?php get_sidebar($post_type); ?>
 <?php get_footer(); ?>

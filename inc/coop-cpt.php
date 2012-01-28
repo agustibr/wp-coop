@@ -6,7 +6,7 @@ function codex_custom_init()
   $labels_recepta = array(
     'name' => _x('Receptes', 'post type general name'),
     'singular_name' => _x('Recepta', 'post type singular name'),
-    'add_new' => _x('Afegir nova', 'recepta'),
+    'add_new' => _x('Afegir nova Recepta', 'recepta'),
     'add_new_item' => __('Afegir nova Recepta'),
     'edit_item' => __('Editar Recepta'),
     'new_item' => __('Nova Recepta'),
@@ -41,18 +41,19 @@ function codex_custom_init()
     'hierarchical' => false,
     'menu_position' => 4,
     'menu_icon'       =>  'http://elrusc.org/wp-content/icons/recepta_16.png',
-    'supports' => array('title','editor','author','comments','thumbnail')
+    'supports' => array('title','editor','author','comments','thumbnail'),
+    'taxonomies' => array('rebost')
   );
   register_post_type('recepta',$args_recepta);
   //add_post_type_support('','thumbnail');
   $labels_cistella = array(
     'name' => _x('Cistelles', 'post type general name'),
     'singular_name' => _x('Cistella', 'post type singular name'),
-    'add_new' => _x('Afegir nova', 'cistella'),
+    'add_new' => _x('Afegir nova Cistella', 'cistella'),
     'add_new_item' => __('Afegir nova Cistella'),
     'edit_item' => __('Editar Cistella'),
     'new_item' => __('Nova Cistella'),
-    'all_items' => __('Totes les Cistella'),
+    'all_items' => __('Totes les Cistelles'),
     'view_item' => __('Veure Cistella'),
     'search_items' => __('Cercar Cistelles'),
     'not_found' =>  __('No s\'han trobat Cistelles '),
@@ -142,7 +143,7 @@ function get_recepta_rebost(){
 //create  taxonomies, for the post type "recepta"
 function create_recepta_taxonomies()
 {
-  // Add new taxonomy
+  // Add new taxonomy Rebost
   $labels = array(
     'name' => _x( 'Rebost', 'taxonomy general name' ),
     'singular_name' => _x( 'Ingredient', 'taxonomy singular name' ),
@@ -167,6 +168,33 @@ function create_recepta_taxonomies()
     //'update_count_callback' => '_update_post_term_count',
     'query_var' => 'rebost',
     'rewrite' => array( 'slug' => 'rebost', 'with_front' => false ),
+  ));
+
+  // Add new taxonomy Rebost
+  $labels = array(
+    'name' => _x( 'Categoria de Recepta', 'taxonomy general name' ),
+    'singular_name' => _x( 'Categoria R', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Cercar Categories R' ),
+    'all_items' => __( 'Categories Receptes' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Editar Categoria Recepta' ),
+    'update_item' => __( 'Actualitzar Categoria Recepta' ),
+    'add_new_item' => __( 'Afegir Categoria Recepta' ),
+    'new_item_name' => __( 'Nom de la Categoria Recepta' ),
+    'menu_name' => __( 'Categoria Recepta' ),
+  );
+
+  register_taxonomy('categoria_recepta',array('recepta'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'public'=> true,
+    //'show_tagcloud' => true,
+    'show_in_nav_menus' => true,
+    //'update_count_callback' => '_update_post_term_count',
+    'query_var' => 'categoria_recepta',
+    'rewrite' => array( 'slug' => 'receptes_', 'with_front' => false ),
   ));
 }
 

@@ -20,7 +20,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php get_template_part( 'content', 'page' ); ?>
-
+					<?php coop_pages_nav(); ?>
 					<?php comments_template( '', true ); ?>
 
 				<?php endwhile; // end of the loop. ?>
