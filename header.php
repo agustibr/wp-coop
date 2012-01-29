@@ -65,7 +65,7 @@
 		<hgroup class="container_16">
 			<h1 id="site-title" class="grid_16"><a href="<?php echo home_url( '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<span class="clear"></span>
-			<h2 id="site-description" class="grid_16"><?php bloginfo( 'description' ); ?></h2>
+			<h2 id="site-description" class="grid_5"><?php bloginfo( 'description' ); ?></h2>
 			<div class="clear"></div>
 		</hgroup>
 		<div class="clear"></div>

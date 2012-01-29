@@ -23,7 +23,7 @@ get_header(); ?>
 
 						<?php while ( $loop->have_posts() ) : $loop->the_post(); $do_not_duplicate[] = $post->ID; ?>
 
-							<div class="feature media-grid grid_5">
+							<div class="feature media-grid grid_11">
 
 								<?php get_the_image( array( 'meta_key' => array( 'Medium', 'Feature Image' , 'thumbnail' ), 'size' => 'medium' ) ); ?>
 								<h4><?php the_title(); ?></h4>
@@ -47,7 +47,7 @@ get_header(); ?>
 
 				</div>
 				<!-- End feature slider. -->
-
+				<div class="clear"></div>
 				<!-- Start CPT Section -->
 				<?php
 				$home_cpts = array(
@@ -57,6 +57,7 @@ get_header(); ?>
 					'page'
 				);
 
+				$count = 0;
 				foreach ($home_cpts as $key => $home_cpt) {
 					$post_type = $home_cpt;
 					$args='&suppress_filters=true&posts_per_page=5&post_type='.$post_type.'&order=DESC&orderby=date';
@@ -75,18 +76,22 @@ get_header(); ?>
 						//if($post_type_slug!='') $can_read_cpt="read_{$post_type_slug}";
 						//echo '-->'.$can_read_cpt;
 						if( coop_user_can_read ( $post_type ) ) :
-						//if ( current_user_can( $can_read_cpt ) ) :
+							$css = 'widget_home widget_home_'.$post_type;
+							if ( $count % 2 ) $css .= ' omega ';
+							else $css .= ' alpha';
 
-							echo '<div class="grid_6 alpha">
-									<article id="tabs-cistelles">
+							echo '<div class="grid_6 '.$css.'">
+									<article>
 										<h3><a href="'.$post_type_slug.'"/>'.$lbl.'</a></h3>
 										<ul>';
 							while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
 							?>
 								<li>
 									<a class="post-title" href="<?php the_permalink(); ?>" title="<?php $view_item.': '.the_title(); ?>">
-										<span style="float:right;"><?php get_the_image(); ?></span>
-										<span style="float:left;"><?php the_title(); ?></span>
+										<?php if(get_the_image()): ?>
+											<span style="float:right;"><?php get_the_image(); ?></span>
+										<?php endif; ?>
+										<span><?php the_title(); ?></span>
 										<span class="clear"></span>
 									</a>
 								</li>
@@ -98,120 +103,15 @@ get_header(); ?>
 								</li>
 							</ul>
 							</article></div>';
+							$count ++;
 						endif;
 					endif;
 					wp_reset_query();
 
 				}
-				/*?>
-				<hr/><hr/><hr/><hr/><hr/>
-				<p>rsdftyughluihjiojiopjiopj</p>
-								<p>rsdftyughluihjiojiopjiopj</p>
-				<div class="grid_6 alpha">
-					<article id="tabs-cistelles">
-						<h3>Cistelles</h3>
-						<ul>
-							<?php // setup the query
-							$args='&suppress_filters=true&posts_per_page=5&post_type=cistella&order=DESC&orderby=date';
-							$cust_loop = new WP_Query($args);
-							if ($cust_loop->have_posts()) : while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
-							?>
-								<li>
-									<a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-									</a>
-								</li>
-							<?php endwhile;
-							endif;
-							wp_reset_query(); ?>
-
-							<li class="last gentesque tooltip" title="View all movie reviews">
-								<a href="cistelles/"><?php echo _('Més Cistelles');?></a>
-							</li>
-
-						</ul>
-					</article> <!-- #cistelles -->
-				</div>
-
-				<div class="grid_6 omega">
-					<article id="tabs-receptes">
-						<h3><a href="receptes/">Receptes</a></h3>
-						<ul class="unstyled">
-							<?php // setup the query
-							$args='&suppress_filters=true&posts_per_page=5&post_type=recepta&order=DESC&orderby=date';
-							$cust_loop = new WP_Query($args);
-							if ($cust_loop->have_posts()) : while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
-							?>
-								<li>
-									<?php get_the_image(  ); ?>
-									<h5><a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-									</a></h5>
-									<?php echo get_the_term_list( get_the_ID(), 'rebost', 'amb: ', ', ', '' ); ?>
-								</li>
-							<?php endwhile;
-							endif;
-							wp_reset_query(); ?>
-
-							<li class="last gentesque tooltip" title="View all movie reviews">
-								<a href="receptes/"><?php echo _('Més Receptes');?></a>
-							</li>
-						</ul>
-					</article> <!-- #receptes -->
-				</div>
-
-				<div class="grid_6 alpha">
-					<article id="tabs-posts">
-						<h3>Actualitat</h3>
-						<ul>
-							<?php // setup the query
-							$args='&suppress_filters=true&posts_per_page=5&post_type=post&order=DESC&orderby=date';
-							$cust_loop = new WP_Query($args);
-							if ($cust_loop->have_posts()) : while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
-							?>
-								<li>
-									<a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-									</a>
-								</li>
-							<?php endwhile;
-							endif;
-							wp_reset_query(); ?>
-
-							<li class="last gentesque tooltip" title="View all movie reviews">
-								<a href="actualitat/"><?php echo _('Més Actualitats');?></a>
-							</li>
-
-						</ul>
-					</article> <!-- #receptes -->
-				</div>
-
-				<div class="grid_6 omega">
-					<article id="tabs-pages">
-						<h3>Pàgines</h3>
-						<ul>
-							<?php // setup the query
-							$args='&suppress_filters=true&posts_per_page=5&post_type=page&order=DESC&orderby=date';
-							$cust_loop = new WP_Query($args);
-							if ($cust_loop->have_posts()) : while ($cust_loop->have_posts()) : $cust_loop->the_post(); $postcount++;
-							?>
-								<li>
-									<a class="post-title" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-									</a>
-								</li>
-							<?php endwhile;
-							endif;
-							wp_reset_query(); ?>
-
-							<li class="last gentesque tooltip" title="View all movie reviews">
-								<a href="receptes/"><?php echo _('Més Pàgines');?></a>
-							</li>
-
-						</ul>
-					</article> <!-- #receptes -->
-				</div>
-				<?php */ ?>
+				?>
+				<!-- End CPT Section -->
+				<div class="clear"></div>
 			</div><!-- #content -->
 		</section><!-- #primary -->
 

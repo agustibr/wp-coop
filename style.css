@@ -176,10 +176,12 @@ aside.widget_rebost a {display: inline;padding: 0;}
 aside.widget_rebost_x_ingredients ul a {font-weight:bold;}
 aside.widget_rebost_x_ingredients ul ul a {font-weight:normal;}
 aside.widget_pages li.current_page_item>a {color:#FFF;}
-.home article {background:#DFFBE5;}
-.home article a {color:#325B3A;}
+.widget_home article {background:#DFFBE5;}
+.widget_home article a {color:#325B3A;}
 
-/*CPT*/
+/*
+CPT
+*/
 .page-title.actualitat {color:#115900;}
 .post {background:#fff;border:1px solid #9BD28E; margin-bottom: 20px;  }
 .post.sticky {border:5px solid #9BD28E;}
@@ -187,12 +189,15 @@ aside.widget_pages li.current_page_item>a {color:#FFF;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 .post .entry-title {color:#115900;}
 
+/* RECEPTA*/
 .post-type-archive-recepta aside a,
 .single-recepta aside a,
 .page-template-tpl-rebost-php aside a {color:#D3975D;}
+.widget_home_recepta article {border-color:#D3975D; background-color:#FFF;}
+.widget_home_recepta article a {color:#472300;}
 .post-type-archive-recepta aside a:hover,
 .single-recepta aside a:hover,
-.page-template-tpl-rebost-php aside a:hover {background-color:#D3975D;color:#472300;}
+.page-template-tpl-rebost-php aside a:hover{background-color:#D3975D;color:#472300;}
 .post-type-archive-recepta .page-title {color:#472300;}
 .post-type-archive-recepta aside,
 .single-recepta aside,
@@ -203,10 +208,14 @@ aside.widget_pages li.current_page_item>a {color:#FFF;}
 .recepta .entry-title {color:#472300;}
 .hentry.recepta {padding:20px;margin:10px auto;}
 
+/*CISTELLA*/
 .post-type-archive-cistella aside a,
 .single-cistella aside a {color:#D7BCED;}
+.widget_home_cistella article a {color:#3B0466;}
+.widget_home_cistella article {border-color:#D7BCED; background-color:#FFF;}
+
 .post-type-archive-cistella aside a:hover,
-.single-cistella aside a:hover {background-color:#D7BCED;color:#3B0466;}
+.single-cistella aside a:hover{background-color:#D7BCED;color:#3B0466;}
 .post-type-archive-cistella .page-title {color:#3B0466;}
 .post-type-archive-cistella aside,
 .single-cistella aside {background-color:#3B0466;}
@@ -219,7 +228,7 @@ aside.widget_pages li.current_page_item>a {color:#FFF;}
 .home .post {max-height:200px;overflow:hidden;font-size:.9em;}
 
 .home .post img {width:100%;}
-
+.widget_home {margin-bottom:20px;}
 .entry-meta {color:#999; font-size:.9em;}
 header .entry-meta {margin-top: -16px;margin-bottom: -16px; text-align: right;}
 .archive header .entry-meta {margin-bottom: 0; text-align: left;}
