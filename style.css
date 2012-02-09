@@ -188,7 +188,9 @@ CPT
 .post a:hover {text-decoration:underline;color:#090;}
 .post a, .post a:visited {color:#115900;font-weight:normal;text-decoration:none;}
 .post .entry-title {color:#115900;}
-
+.home #slider .post {border:none;background:transparent;}
+.home #slider .post h4 {color:#115900;}
+.home #slider .post a {margin-bottom:1em;margin-right:1em;}
 /* RECEPTA*/
 .post-type-archive-recepta aside a,
 .single-recepta aside a,

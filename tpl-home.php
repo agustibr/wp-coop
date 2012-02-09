@@ -8,11 +8,9 @@
  */
 
 get_header(); ?>
-
-		<section id="primary" class="grid_12">
-			<div id="content" role="main">
-
-				<!-- Begin feature slider. -->
+	<section id="primary" class="grid_12">
+		<div id="content" role="main" class="grid_7 alpha">
+			<!-- Begin feature slider. -->
 				<div id="slider-container" class="alert-message block-message info">
 
 					<div id="slider">
@@ -23,9 +21,9 @@ get_header(); ?>
 
 						<?php while ( $loop->have_posts() ) : $loop->the_post(); $do_not_duplicate[] = $post->ID; ?>
 
-							<div class="feature media-grid grid_11">
+							<div class="media-grid grid_6 FUA <?php echo get_post_type();?>">
 
-								<?php get_the_image( array( 'meta_key' => array( 'Medium', 'Feature Image' , 'thumbnail' ), 'size' => 'medium' ) ); ?>
+								<?php get_the_image( array( 'meta_key' => array( 'Thumbnail', 'Feature Image' , 'thumbnail' ), 'size' => 'thumbnail' ) ); ?>
 								<h4><?php the_title(); ?></h4>
 								<div class="entry-summary">
 									<?php the_excerpt(); ?>
@@ -47,14 +45,15 @@ get_header(); ?>
 
 				</div>
 				<!-- End feature slider. -->
-				<div class="clear"></div>
-				<!-- Start CPT Section -->
+		</div>
+		<div class="grid_5 omega">
+			<!-- Start CPT Section -->
 				<?php
 				$home_cpts = array(
 					'cistella',
 					'recepta',
-					'post',
-					'page'
+					//'post',
+					//'page'
 				);
 
 				$count = 0;
@@ -77,10 +76,10 @@ get_header(); ?>
 						//echo '-->'.$can_read_cpt;
 						if( coop_user_can_read ( $post_type ) ) :
 							$css = 'widget_home widget_home_'.$post_type;
-							if ( $count % 2 ) $css .= ' omega ';
-							else $css .= ' alpha';
+							if ( $count % 2 ) $css .= ' alpha ';
+							else $css .= ' omega ';
 
-							echo '<div class="grid_6 '.$css.'">
+							echo '<div class="'.$css.'">
 									<article>
 										<h3><a href="'.$post_type_slug.'"/>'.$lbl.'</a></h3>
 										<ul>';
@@ -111,9 +110,8 @@ get_header(); ?>
 				}
 				?>
 				<!-- End CPT Section -->
-				<div class="clear"></div>
-			</div><!-- #content -->
-		</section><!-- #primary -->
-
-<?php get_sidebar(); ?>
+		</div>
+		<div class="clear"></div>
+	</section><!-- #primary -->
+	<?php get_sidebar(); ?>
 <?php get_footer(); ?>
