@@ -40,7 +40,7 @@ function codex_custom_init()
     'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => 4,
-    'menu_icon'       =>  'http://elrusc.org/wp-content/icons/recepta_16.png',
+    'menu_icon'       =>  CoopTheme_URL.'/img/icons/recepta_16.png',
     'supports' => array('title','editor','author','comments','thumbnail'),
     'taxonomies' => array('rebost')
   );
@@ -84,7 +84,7 @@ function codex_custom_init()
     'has_archive' => true,
     'hierarchical' => false,
     'menu_position' => 4,
-    'menu_icon'       =>  'http://elrusc.org/wp-content/icons/document_16.png',
+    'menu_icon'       =>  CoopTheme_URL.'/img/icons/cistella_16.png',
     'supports' => array('title','editor','author','comments')
   );
   register_post_type('cistella',$args_cistella);
