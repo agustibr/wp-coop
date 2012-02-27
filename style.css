@@ -5,7 +5,7 @@ Description:    Tema per a el Rusc.
 Author:         Agustí Belloc
 Author URI:     http: //agusti.cat/
 Template:       toolbox
-Version:        0.0.2
+Version:        0.0.3
 */
 /*@import url("../toolbox/style.css");*/
 @import url("css/bootstrap.min.css");
@@ -82,7 +82,7 @@ COLORS:
 
 html, body {min-height:100%;}
 body {background: #F3F3F3 url(img/bg-body-hexagon.png) center bottom;font-family:sans-serif;}
-#site-title {font-family: 'Sniglet', cursive;margin-top: 50px;margin-bottom: 0;}
+#site-title {font-family: 'Sniglet', sans-serif;margin-top: 50px;margin-bottom: 0;}
 #branding {background:url(img/header-bg.png);}
 #branding hgroup {background: transparent url(img/elrusc-header.png) no-repeat right top;}
 #site-title a {color:#000;}

@@ -9,7 +9,7 @@ function the_title_trim($title) {
 	);
 	$replacewith = array(
     	'<span class="icon-lock"></span>', // What to replace "Protected:" with
-    	'' // What to replace "Private:" with
+    	'<span class="icon-lock private"></span>' // What to replace "Private:" with
 	);
 	$title = preg_replace($findthese, $replacewith, $title);
 	return $title;
