@@ -81,7 +81,7 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 					<div class="entry-content">
-						<?php  if ( !post_password_required() ) : ?>
+						<?php if ( !post_password_required() ) : ?>
 						<!-- REGISTER FORM STARTS HERE -->
 
 							<?php while ( have_posts() ) : the_post(); ?>
@@ -302,7 +302,10 @@ if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POS
 						<?php endif; ?>
 
 						<!-- REGISTER FORM ENDS HERE -->
-						<?php endif; //if ( !post_password_required() ) ?>
+						<?php
+						else:
+							the_content();
+						endif; //if ( !post_password_required() ) ?>
 
 					</div><!-- .entry-content -->
 				</article><!-- #post-<?php the_ID(); ?> -->
