@@ -22,11 +22,11 @@ get_header(); ?>
             		foreach ( $wp_roles->role_names as $role => $role_name ) :
             			$tab_class = '';
             			if($role =='ruscaire') $tab_class = 'class="active"';
-						if($role!='administrator') echo '<li '.$tab_class.'><a href="#'.$role.'">'.$role_name.'</a></li>';
+						if($role!='administrator' && $role!='subscriber') echo '<li '.$tab_class.'><a href="#'.$role.'">'.$role_name.'</a></li>';
             		endforeach;
             		echo '</ul><div class="tab-content">';
 					foreach ( $wp_roles->role_names as $role => $role_name ) :
-						if($role!='administrator'):
+						if($role!='administrator' && $role!='subscriber'):
 							//$blogusers = get_users('blog_id=1&orderby=nicename&role=subscriber');
 							$options = 'role='.$role;
 							$tab_pane_class = "tab-pane";
