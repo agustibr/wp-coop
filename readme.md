@@ -1,8 +1,8 @@
 # wp-Coop WordPress Theme [https://github.com/AgustiBelloc/wp-coop/](https://github.com/AgustiBelloc/wp-coop)
 
 ## Instalació
- 1. instal.lar el Wordpress ( http://ca.wordpress.org )
- 2. instal.lar el tema pare Toolbox ( http://wordpress.org/extend/themes/toolbox )
+ 1. instal.lar el Wordpress 3.3.1 ( http://ca.wordpress.org )
+ 2. instal.lar el tema pare Toolbox 1.4 ( http://wordpress.org/extend/themes/toolbox )
  3. instal.lar el tema fill wp-Coop ( https://github.com/AgustiBelloc/wp-coop )
  4. instal.lar els seguents plugins:
     * Wordpress Importer ( http://wordpress.org/extend/plugins/wordpress-importer/ )
