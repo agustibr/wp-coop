@@ -1,4 +1,43 @@
 <?php
+/**
+EMAILS
+**/
+function authorNotification1($post_id) {
+    global $wpdb;
+    $post = get_post($post_id);
+    $author = get_userdata($post->post_author);
+
+    $message = "
+    Hi ".$author->display_name.",
+    Your post, ".$post->post_title." has just been published. Well done!
+    ";
+    $email = 'itsuga@agusti.cat'; //$author->user_email
+    wp_mail($email, "Your article is online", $message);
+}
+add_action('publish_post', 'authorNotification1');
+
+function email_friends( $post_ID )
+{
+   $friends = 'itsuga@agusti.cat';
+   wp_mail( $friends, "Comment blog updated", 'I just put something on my blog: http://blog.example.com' );
+
+   return $post_ID;
+}
+add_action('comment_post', 'email_friends');
+
+/**
+Disable RSS
+**/
+function wp_disable_feed() {
+   wp_die( __('Sorry, no feeds available, return to <a href="'. get_bloginfo('url') .'">homepage</a>') );
+}
+
+add_action('do_feed', 'wp_disable_feed', 1);
+add_action('do_feed_rdf', 'wp_disable_feed', 1);
+add_action('do_feed_rss', 'wp_disable_feed', 1);
+add_action('do_feed_rss2', 'wp_disable_feed', 1);
+add_action('do_feed_atom', 'wp_disable_feed', 1);
+
 // inclou favicon
 function favicon_link() {
     echo '<link rel="shortcut icon" type="image/x-icon" href="'.CoopTheme_URL.'/favicon.ico" />' . "\n";
