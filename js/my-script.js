@@ -14,7 +14,7 @@ jQuery(document).ready(function($) {
                 //pause: 1,
                 timeout: 8000,
                 delay: -8000,
-                speed: 800
+                speed: 2000
             });
 
     // Pause the slider
