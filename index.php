@@ -12,7 +12,7 @@
  * @subpackage wp-Coop
  * @since Toolbox 0.1
  */
-http://localhost/wordpress/wp-admin/post-new.php?post_type=recepta
+
 get_header(); ?>
 
 		<div id="primary">
