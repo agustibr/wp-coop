@@ -106,7 +106,7 @@ function coop_btn_publish_new( $post_type ) {
     $post_type_obj = get_post_type_object( $post_type );
     $cap_publish = $post_type_obj->cap->publish_posts;
     $lbl_singular = $post_type_obj->labels->singular_name;
-    if( current_user_can( $cap_publish ) ) echo '<a href="'.get_bloginfo('url').'/wp-admin/post-new.php?post_type='.$post_type.'" class="btn small success">+ '.__('Afegir', 'wp-coop').' '.$lbl_singular.'</a>';
+    if( current_user_can( $cap_publish ) ) echo '<a href="'.get_bloginfo('wpurl').'/wp-admin/post-new.php?post_type='.$post_type.'" class="btn small success">+ '.__('Afegir', 'wp-coop').' '.$lbl_singular.'</a>';
 }
 
 function coop_btn_edit( $post_type ) {
